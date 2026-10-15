@@ -1,0 +1,15 @@
+# Rule: Does the project sanitise input?
+concept_id: security.sanitization
+requires_any:
+  - security.sanitization.presence.sanitize
+  - security.sanitization.presence.escape
+  - security.sanitization.presence.parameterized-query
+  - security.sanitization.presence.prepared-statement
+  - security.sanitization.presence.orm-default
+min_confidence: 0.5
+absence_signals:
+  - security.sanitization.absence
+misconfiguration_signals:
+  - security.sanitization.misconfig.sql-format
+  - security.sanitization.misconfig.f-string-sql
+recommendation: "Use parameterised queries (ORM, prepared statements) to prevent SQL injection. Never concatenate user input into SQL."

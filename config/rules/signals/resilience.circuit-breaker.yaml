@@ -1,0 +1,12 @@
+# Rule: Does the project use a circuit breaker?
+concept_id: resilience.circuit-breaker
+requires_any:
+  - resilience.circuit-breaker.presence.pybreaker
+  - resilience.circuit-breaker.presence.opossum
+  - resilience.circuit-breaker.presence.hystrix
+  - resilience.circuit-breaker.presence.resilience4j
+  - resilience.circuit-breaker.presence.breaker-decorator
+min_confidence: 0.5
+absence_signals:
+  - resilience.circuit-breaker.absence
+recommendation: "Add a circuit breaker (pybreaker, opossum, resilience4j) for external service calls."

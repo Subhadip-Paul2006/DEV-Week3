@@ -1,0 +1,13 @@
+# Rule: Does the project use dependency vulnerability scanning?
+concept_id: security.dependency-scan
+requires_any:
+  - security.dependency-scan.presence.snyk
+  - security.dependency-scan.presence.dependabot
+  - security.dependency-scan.presence.pip-audit
+  - security.dependency-scan.presence.trivy
+  - security.dependency-scan.presence.npm-audit
+  - security.dependency-scan.presence.safety
+min_confidence: 0.5
+absence_signals:
+  - security.dependency-scan.absence
+recommendation: "Add dependency scanning (Snyk, Dependabot, pip-audit, trivy) to your CI pipeline."

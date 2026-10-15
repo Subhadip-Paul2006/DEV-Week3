@@ -1,0 +1,16 @@
+# Rule: Does the project use an ORM / query builder?
+concept_id: data.orm
+requires_any:
+  - data.orm.presence.sqlalchemy
+  - data.orm.presence.prisma
+  - data.orm.presence.typeorm
+  - data.orm.presence.sequelize
+  - data.orm.presence.eloquent
+  - data.orm.presence.gorm
+  - data.orm.presence.django-orm
+min_confidence: 0.5
+absence_signals:
+  - data.orm.absence
+misconfiguration_signals:
+  - data.orm.misconfig.raw-sql-concat
+recommendation: "Use an ORM (SQLAlchemy, Prisma, TypeORM, Sequelize) to avoid SQL injection and gain schema tooling."

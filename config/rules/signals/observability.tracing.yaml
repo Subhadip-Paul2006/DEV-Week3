@@ -1,0 +1,12 @@
+# Rule: Does the project implement distributed tracing?
+concept_id: observability.tracing
+requires_any:
+  - observability.tracing.presence.opentelemetry
+  - observability.tracing.presence.jaeger
+  - observability.tracing.presence.zipkin
+  - observability.tracing.presence.tracer
+  - observability.tracing.presence.span
+min_confidence: 0.5
+absence_signals:
+  - observability.tracing.absence
+recommendation: "Add distributed tracing (OpenTelemetry, Jaeger, Zipkin) to trace requests across services."

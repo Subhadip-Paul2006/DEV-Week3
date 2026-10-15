@@ -1,0 +1,24 @@
+{
+  "run_id": "audit_1791022296",
+  "timestamp": "2026-10-03T10:11:36+00:00",
+  "audit_duration_ms": 588.42,
+  "scanner_duration_ms": {},
+  "agent_duration_ms": {},
+  "queue_depth": 0,
+  "active_agents": [],
+  "failed_agents": [],
+  "retry_counts": {},
+  "cache_hits": 8,
+  "cache_misses": 0,
+  "evidence_counts": {
+    "raw": 387,
+    "correlated": 387,
+    "bundles": 45
+  },
+  "aggregation_duration_ms": 376.5,
+  "memory_mb": 1.53,
+  "ai_request_duration_ms": 0.0,
+  "ai_failures": 0,
+  "research_failures": 0,
+  "report_generation_duration_ms": 0.0
+}

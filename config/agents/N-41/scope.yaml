@@ -1,0 +1,22 @@
+agent_id: N-41
+name: Service Mesh Specialist
+category: networking
+version: 0.1.0
+description: >
+  Evaluates service mesh adoption, sidecar injection, and traffic management.
+
+scanner_signals:
+    - networking.service-mesh
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: networking.service-mesh
+  report_section: "Service Mesh Specialist findings"
+  priority_default: medium

@@ -1,0 +1,13 @@
+# Rule: Does the project have observability metrics?
+concept_id: observability.metrics
+requires_any:
+  - observability.metrics.presence.prometheus
+  - observability.metrics.presence.datadog
+  - observability.metrics.presence.newrelic
+  - observability.metrics.presence.statsd
+  - observability.metrics.presence.opentelemetry
+  - observability.metrics.presence.custom-metrics
+min_confidence: 0.5
+absence_signals:
+  - observability.metrics.absence
+recommendation: "Add metrics (Prometheus, OpenTelemetry, Datadog) using RED (Rate, Errors, Duration) or USE (Utilization, Saturation, Errors) method."

@@ -1,0 +1,10 @@
+# Rule: Does the project expose health check endpoints?
+concept_id: deployment.healthchecks
+requires_any:
+  - deployment.healthchecks.presence.health-endpoint
+  - deployment.healthchecks.presence.readiness-endpoint
+  - deployment.healthchecks.presence.liveness-endpoint
+min_confidence: 0.5
+absence_signals:
+  - deployment.healthchecks.absence
+recommendation: "Add /health and /ready endpoints for orchestrator health checks."

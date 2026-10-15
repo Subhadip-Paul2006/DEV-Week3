@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDAT Audit Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Stats Cards */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        .stat-card h3 {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Priority Bar */
+        .priority-bar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .priority-bar h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .priority-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .priority-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .priority-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .priority-label {
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+        .priority-count {
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        /* Category Sections */
+        .category {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+        }
+
+        .category h2 {
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+
+        /* Items */
+        .item {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #667eea;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+
+        .item h3 {
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-meta {
+            font-size: 0.85rem;
+            color: #718096;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-description {
+            color: #4a5568;
+            margin-bottom: 0.75rem;
+        }
+
+        .item-evidence {
+            background: white;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #4a5568;
+            margin-bottom: 0.75rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .item-recommendation {
+            background: #ebf8ff;
+            padding: 0.75rem;
+            border-radius: 6px;
+            color: #2c5282;
+            font-size: 0.9rem;
+        }
+
+        .item-recommendation strong {
+            color: #2b6cb0;
+        }
+
+        /* Status Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-implemented {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .badge-missing {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        .badge-misconfigured {
+            background: #feebc8;
+            color: #744210;
+        }
+
+        /* Priority Colors */
+        .priority-critical {
+            background: #e53e3e;
+        }
+
+        .priority-high {
+            background: #dd6b20;
+        }
+
+        .priority-medium {
+            background: #d69e2e;
+        }
+
+        .priority-low {
+            background: #38a169;
+        }
+
+        .priority-info {
+            background: #4299e1;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .category {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 SDAT Audit Report</h1>
+        <p>System Design Audit Tool — Comprehensive Architecture Analysis</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Generated: {{ timestamp }} | Target: {{ target_root }}</p>
+    </div>
+
+    <div class="container">
+        <!-- Executive Summary -->
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Total Concepts</h3>
+                <div class="number">{{ total_decisions }}</div>
+            </div>
+            <div class="stat-card">
+                <h3>Implemented</h3>
+                <div class="number">{{ implemented_count }}</div>
+            </div>
+            <div class="stat-card">
+                <h3>Missing</h3>
+                <div class="number">{{ missing_count }}</div>
+            </div>
+            <div class="stat-card">
+                <h3>Misconfigured</h3>
+                <div class="number">{{ misconfigured_count }}</div>
+            </div>
+            <div class="stat-card">
+                <h3>Coverage</h3>
+                <div class="number">{{ coverage_percent }}%</div>
+            </div>
+        </div>
+
+        <!-- Priority Breakdown -->
+        <div class="priority-bar">
+            <h2>🎯 Priority Breakdown</h2>
+            <div class="priority-items">
+                {% for level, count in priority_counts.items() %}
+                <div class="priority-item">
+                    <div class="priority-dot priority-{{ level }}"></div>
+                    <span class="priority-label">{{ level.title() }}:</span>
+                    <span class="priority-count">{{ count }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Findings by Category -->
+        {% for category, items in findings_by_category.items() %}
+        <div class="category">
+            <h2>📁 {{ category }}</h2>
+            {% for item in items %}
+            <div class="item">
+                <h3>{{ item.concept_name }} <span class="badge badge-{{ item.status }}">{{ item.status }}</span></h3>
+                <div class="item-meta">
+                    Priority: <span class="badge priority-{{ item.priority }}">{{ item.priority }}</span> |
+                    Confidence: {{ "%.0f"|format(item.confidence * 100) }}%
+                </div>
+                {% if item.recommendation %}
+                <div class="item-description">{{ item.recommendation }}</div>
+                {% endif %}
+                {% if item.evidence %}
+                <div class="item-evidence">
+                    <strong>📌 Evidence:</strong> {{ item.evidence[0].file }}:{{ item.evidence[0].line }}
+                    {% if item.evidence[0].snippet %}
+                    <br><code>{{ item.evidence[0].snippet[:100] }}</code>
+                    {% endif %}
+                </div>
+                {% endif %}
+                {% if item.gaps %}
+                <div class="item-recommendation">
+                    <strong>⚠️ Missing:</strong> {{ item.gaps | join(', ') }}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="footer">
+        <p>SDAT v0.1.0 — System Design Audit Tool</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Coverage: Foundation · Security · Data · Observability · Resilience · Deployment · Performance · Streaming · ML/AI · Networking · Compliance</p>
+    </div>
+</body>
+</html>

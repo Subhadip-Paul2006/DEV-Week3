@@ -1,0 +1,12 @@
+# Rule: Does the project document backup / recovery?
+concept_id: data.backup
+requires_any:
+  - data.backup.presence.backup-script
+  - data.backup.presence.pg-dump
+  - data.backup.presence.snapshot
+  - data.backup.presence.restore
+  - data.backup.presence.replication
+min_confidence: 0.5
+absence_signals:
+  - data.backup.absence
+recommendation: "Document and automate database backups (pg_dump, mongodump, snapshots, PITR)."

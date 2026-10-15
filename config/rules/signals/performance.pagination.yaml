@@ -1,0 +1,11 @@
+# Rule: Does the API paginate list endpoints?
+concept_id: performance.pagination
+requires_any:
+  - performance.pagination.presence.limit
+  - performance.pagination.presence.offset
+  - performance.pagination.presence.cursor
+  - performance.pagination.presence.page
+min_confidence: 0.5
+absence_signals:
+  - performance.pagination.absence
+recommendation: "Paginate all list endpoints (limit/offset or cursor-based) to avoid memory blow-ups."

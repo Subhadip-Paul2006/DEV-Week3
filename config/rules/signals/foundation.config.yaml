@@ -1,0 +1,10 @@
+# Rule: Does the project use environment configuration?
+concept_id: foundation.config
+requires_any:
+  - foundation.config.presence.dotenv
+  - foundation.config.presence.environ
+  - foundation.config.presence.os-getenv
+min_confidence: 0.6
+absence_signals:
+  - foundation.config.absence
+recommendation: "Use python-dotenv or os.environ to manage configuration. Never hard-code secrets."

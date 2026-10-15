@@ -1,0 +1,12 @@
+# Rule: Does the project use async / non-blocking I/O?
+concept_id: performance.async
+requires_any:
+  - performance.async.presence.async-def
+  - performance.async.presence.await
+  - performance.async.presence.asyncio
+  - performance.async.presence.promise
+  - performance.async.presence.event-loop
+min_confidence: 0.5
+absence_signals:
+  - performance.async.absence
+recommendation: "Consider async I/O (asyncio, promises) for I/O-bound workloads to improve throughput."

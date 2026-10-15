@@ -1,0 +1,14 @@
+# Rule: Does the project have centralised error handling?
+concept_id: foundation.error-handling
+requires_any:
+  - foundation.error-handling.presence.errorhandler
+  - foundation.error-handling.presence.try-except
+  - foundation.error-handling.presence.middleware
+  - foundation.error-handling.presence.custom-error
+min_confidence: 0.5
+absence_signals:
+  - foundation.error-handling.absence
+misconfiguration_signals:
+  - foundation.error-handling.misconfig.bare-except
+  - foundation.error-handling.misconfig.print-exception
+recommendation: "Add a central error handler. Avoid bare except: and print(e); use proper error handlers."

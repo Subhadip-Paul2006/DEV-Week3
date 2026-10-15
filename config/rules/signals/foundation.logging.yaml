@@ -1,0 +1,11 @@
+# Rule: Does the project have structured logging?
+concept_id: foundation.logging
+requires_any:
+  - foundation.logging.presence.logging-module
+  - foundation.logging.presence.loguru
+  - foundation.logging.presence.structlog
+  - foundation.logging.presence.custom-logger
+min_confidence: 0.5
+absence_signals:
+  - foundation.logging.absence
+recommendation: "Add structured logging (loguru, structlog, or stdlib logging with JSON formatter)."

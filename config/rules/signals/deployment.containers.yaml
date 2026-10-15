@@ -1,0 +1,10 @@
+# Rule: Does the project use containerisation?
+concept_id: deployment.containers
+requires_any:
+  - deployment.containers.presence.dockerfile
+  - deployment.containers.presence.docker-compose
+  - deployment.containers.presence.dockerignore
+min_confidence: 0.5
+absence_signals:
+  - deployment.containers.absence
+recommendation: "Containerise the application with Docker for reproducible builds and environment parity."

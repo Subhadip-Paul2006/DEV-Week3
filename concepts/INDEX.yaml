@@ -1,0 +1,1864 @@
+version: 0.1.0
+generated_at: '2026-10-02T16:42:09+00:00'
+total_concepts: 109
+domains:
+- backend
+- core
+- cross_domain
+- database
+- devops
+- frontend
+- ml
+- networking
+- nlp
+- web3
+categories:
+- accessibility
+- api
+- architecture
+- async
+- caching
+- compliance
+- concurrency
+- data
+- deployment
+- foundation
+- loading_strategy
+- ml-ai
+- navigation_routing
+- networking
+- nlp
+- observability
+- performance
+- reliability
+- rendering
+- request-lifecycle
+- resilience
+- runtime_performance
+- scalability
+- security
+- streaming
+- web3
+concepts:
+- id: backend.api-architecture
+  domain: backend
+  category: api
+  name: Backend API Architecture
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  status: active
+  file: domains/backend/api-architecture.md
+- id: backend.async-processing
+  domain: backend
+  category: async
+  name: Asynchronous Task Processing
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  status: active
+  file: domains/backend/async-processing.md
+- id: backend.authentication
+  domain: backend
+  category: security
+  name: Backend Authentication Flow
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.security
+  status: active
+  file: domains/backend/authentication.md
+- id: backend.authorization
+  domain: backend
+  category: security
+  name: Backend Authorization & Access Control
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.security
+  status: active
+  file: domains/backend/authorization.md
+- id: backend.background-jobs
+  domain: backend
+  category: async
+  name: Background Jobs & Worker Queues
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  status: active
+  file: domains/backend/background-jobs.md
+- id: backend.caching
+  domain: backend
+  category: caching
+  name: Backend Caching & TTL Invalidation
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.caching
+  status: active
+  file: domains/backend/caching.md
+- id: backend.concurrency
+  domain: backend
+  category: concurrency
+  name: Concurrency & Non-Blocking Execution
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.concurrency
+  status: active
+  file: domains/backend/concurrency.md
+- id: backend.connection-pooling
+  domain: backend
+  category: performance
+  name: Database Connection Pooling
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.connection-pooling
+  status: active
+  file: domains/backend/connection-pooling.md
+- id: backend.database-interaction
+  domain: backend
+  category: data
+  name: Database Interaction & Parameterized Access
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  status: active
+  file: domains/backend/database-interaction.md
+- id: backend.error-handling
+  domain: backend
+  category: reliability
+  name: Structured Error Handling & Exception Containment
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  status: active
+  file: domains/backend/error-handling.md
+- id: backend.external-service-integration
+  domain: backend
+  category: resilience
+  name: External Service Client Isolation
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  status: active
+  file: domains/backend/external-service-integration.md
+- id: backend.idempotency
+  domain: backend
+  category: reliability
+  name: Idempotency & Deduplication
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.idempotency
+  status: active
+  file: domains/backend/idempotency.md
+- id: backend.input-validation
+  domain: backend
+  category: security
+  name: Input Validation & Schema Boundaries
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.security
+  status: active
+  file: domains/backend/input-validation.md
+- id: backend.observability
+  domain: backend
+  category: observability
+  name: Backend Observability & Telemetry
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.observability
+  status: active
+  file: domains/backend/observability.md
+- id: backend.performance
+  domain: backend
+  category: performance
+  name: Backend Execution Performance & Non-Blocking I/O
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.performance
+  status: active
+  file: domains/backend/performance.md
+- id: backend.rate-limiting
+  domain: backend
+  category: scalability
+  name: Rate Limiting & Abuse Prevention
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.rate-limiting
+  status: active
+  file: domains/backend/rate-limiting.md
+- id: backend.request-lifecycle
+  domain: backend
+  category: request-lifecycle
+  name: Request Lifecycle & Layer Separation
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  status: active
+  file: domains/backend/request-lifecycle.md
+- id: backend.resilience
+  domain: backend
+  category: resilience
+  name: Backend Resilience & Graceful Degradation
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.resilience
+  status: active
+  file: domains/backend/resilience.md
+- id: backend.resource-lifecycle
+  domain: backend
+  category: performance
+  name: Resource Lifecycle & Disposal
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  status: active
+  file: domains/backend/resource-lifecycle.md
+- id: backend.retry-architecture
+  domain: backend
+  category: resilience
+  name: Retry Architecture & Backoff Safety
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.retries
+  status: active
+  file: domains/backend/retry-architecture.md
+- id: backend.scalability
+  domain: backend
+  category: scalability
+  name: Statelessness & Horizontal Scalability
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.scalability
+  status: active
+  file: domains/backend/scalability.md
+- id: backend.security
+  domain: backend
+  category: security
+  name: Backend Security & Secret Hygiene
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.security
+  status: active
+  file: domains/backend/security.md
+- id: backend.service-boundaries
+  domain: backend
+  category: architecture
+  name: Service Boundaries & Modularity
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  status: active
+  file: domains/backend/service-boundaries.md
+- id: backend.timeout-management
+  domain: backend
+  category: resilience
+  name: Timeout Management & Bounded Execution
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  specializes: core.timeouts
+  status: active
+  file: domains/backend/timeout-management.md
+- id: backend.transaction-boundaries
+  domain: backend
+  category: data
+  name: Transaction Boundaries & Scope Containment
+  owning_agent: D-01
+  maturity: stable
+  languages:
+  - any
+  status: active
+  file: domains/backend/transaction-boundaries.md
+- id: foundation.caching
+  category: foundation
+  owning_agent: F-01
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - key-value
+  - distributed
+  - in-memory
+  - performance
+  related:
+  - foundation.connection-pooling
+  - foundation.cap-consistency
+  domain: core
+  file: core/caching/caching.md
+- id: foundation.cap-consistency
+  category: foundation
+  owning_agent: F-10
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - consistency
+  - availability
+  - partition-tolerance
+  - tradeoffs
+  related:
+  - foundation.db-scaling
+  - foundation.caching
+  - foundation.idempotency
+  domain: core
+  file: core/architecture/cap-consistency.md
+- id: foundation.client-server
+  category: foundation
+  owning_agent: F-17
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - request-response
+  - polling
+  - sse
+  - websocket
+  related:
+  - foundation.protocols
+  - foundation.latency-bandwidth
+  - foundation.load-balancers
+  domain: core
+  file: core/architecture/client-server.md
+- id: foundation.connection-pooling
+  category: foundation
+  owning_agent: F-06
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - resource-management
+  - database
+  - http
+  - connection-limit
+  related:
+  - foundation.caching
+  - foundation.circuit-breaker
+  domain: core
+  file: core/concurrency/connection-pooling.md
+- id: foundation.consistent-hashing
+  category: foundation
+  owning_agent: F-12
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - distributed-systems
+  - ring-topology
+  - virtual-nodes
+  - load-balancing
+  related:
+  - foundation.db-scaling
+  - foundation.load-balancers
+  - foundation.caching
+  domain: core
+  file: core/scalability/consistent-hashing.md
+- id: foundation.db-scaling
+  category: foundation
+  owning_agent: F-11
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - sharding
+  - read-replicas
+  - indexing
+  - partitioning
+  related:
+  - foundation.cap-consistency
+  - foundation.consistent-hashing
+  - foundation.connection-pooling
+  domain: core
+  file: core/scalability/db-scaling.md
+- id: foundation.fault-tolerance
+  category: foundation
+  owning_agent: F-08
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - resilience
+  - timeout
+  - bulkhead
+  - graceful-degradation
+  related:
+  - foundation.circuit-breaker
+  - foundation.retries
+  - foundation.message-queues
+  domain: core
+  file: core/resilience/fault-tolerance.md
+- id: foundation.hld
+  category: foundation
+  owning_agent: F-02
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - architecture
+  - microservices
+  - monolith
+  - layers
+  - deployment
+  - system-design
+  - distributed-systems
+  related:
+  - foundation.lld
+  - foundation.load-balancers
+  - foundation.proxies
+  - foundation.client-server
+  - foundation.scalability
+  domain: core
+  file: core/architecture/hld.md
+- id: foundation.idempotency
+  category: foundation
+  owning_agent: F-09
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - deduplication
+  - safe-retry
+  - webhook
+  - payment
+  related:
+  - foundation.retries
+  - foundation.message-queues
+  - foundation.cap-consistency
+  domain: core
+  file: core/idempotency/idempotency.md
+- id: foundation.latency-bandwidth
+  category: foundation
+  owning_agent: F-18
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - latency
+  - throughput
+  - p99
+  - cdn
+  - bandwidth
+  related:
+  - foundation.client-server
+  - foundation.protocols
+  - foundation.caching
+  domain: core
+  file: core/performance/latency-bandwidth.md
+- id: foundation.lld
+  category: foundation
+  owning_agent: F-03
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - solid
+  - coupling
+  - cohesion
+  - design-patterns
+  - oop
+  - clean-code
+  - single-responsibility
+  - dependency-inversion
+  related:
+  - foundation.hld
+  - foundation.circuit-breaker
+  - foundation.connection-pooling
+  - foundation.error-handling
+  - foundation.client-server
+  domain: core
+  file: core/architecture/lld.md
+- id: foundation.load-balancers
+  category: foundation
+  owning_agent: F-14
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - l4-l7
+  - health-checks
+  - session-affinity
+  - round-robin
+  related:
+  - foundation.rate-limiting
+  - foundation.proxies
+  - foundation.consistent-hashing
+  domain: core
+  file: core/scalability/load-balancers.md
+- id: foundation.message-queues
+  category: foundation
+  owning_agent: F-07
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - async
+  - pub-sub
+  - event-driven
+  - dead-letter
+  related:
+  - foundation.fault-tolerance
+  - foundation.idempotency
+  - foundation.circuit-breaker
+  domain: core
+  file: core/architecture/message-queues.md
+- id: foundation.observability
+  category: foundation
+  owning_agent: F-19
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - metrics
+  - logs
+  - traces
+  - slo
+  - prometheus
+  - opentelemetry
+  - apm
+  - alerting
+  - dashboards
+  related:
+  - foundation.fault-tolerance
+  - foundation.latency-bandwidth
+  - foundation.security-fundamentals
+  - foundation.scalability
+  domain: core
+  file: core/observability/observability.md
+- id: foundation.protocols
+  category: foundation
+  owning_agent: F-16
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - http
+  - grpc
+  - websocket
+  - tcp-udp
+  related:
+  - foundation.client-server
+  - foundation.proxies
+  - foundation.load-balancers
+  domain: core
+  file: core/architecture/protocols.md
+- id: foundation.proxies
+  category: foundation
+  owning_agent: F-15
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - reverse-proxy
+  - api-gateway
+  - sidecar
+  - forward-proxy
+  related:
+  - foundation.load-balancers
+  - foundation.protocols
+  - foundation.rate-limiting
+  domain: core
+  file: core/architecture/proxies.md
+- id: foundation.rate-limiting
+  category: foundation
+  owning_agent: F-13
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - token-bucket
+  - sliding-window
+  - api-gateway
+  - throttling
+  related:
+  - foundation.load-balancers
+  - foundation.circuit-breaker
+  - foundation.proxies
+  domain: core
+  file: core/concurrency/rate-limiting.md
+- id: foundation.security-fundamentals
+  category: foundation
+  owning_agent: F-20
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - owasp
+  - auth
+  - injection
+  - input-validation
+  - xss
+  - csrf
+  - secrets
+  - encryption
+  - authentication
+  - authorization
+  - security
+  related:
+  - foundation.observability
+  - foundation.client-server
+  - foundation.circuit-breaker
+  - foundation.caching
+  - foundation.fault-tolerance
+  domain: core
+  file: core/security/security-fundamentals.md
+- id: ml.feature-store
+  category: ml-ai
+  name: Feature Store
+  owning_agent: M-38
+  maturity: emerging
+  languages:
+  - python
+  tags:
+  - feast
+  - tecton
+  - feature-view
+  - online-store
+  related:
+  - ml.mlops
+  - data.orm
+  domain: core
+  file: core/architecture/feature-store.md
+- id: ml.mlops
+  category: ml-ai
+  name: MLOps Pipeline
+  owning_agent: M-36
+  maturity: emerging
+  languages:
+  - python
+  tags:
+  - mlflow
+  - kubeflow
+  - drift
+  - model-registry
+  - training
+  related:
+  - ml.nlp
+  - deployment.orchestration
+  domain: core
+  file: core/architecture/mlops.md
+- id: ml.model-serving
+  category: ml-ai
+  name: Model Serving
+  owning_agent: M-37
+  maturity: emerging
+  languages:
+  - python
+  tags:
+  - torchserve
+  - triton
+  - bentoml
+  - inference
+  - predict
+  related:
+  - ml.mlops
+  - deployment.containers
+  domain: core
+  file: core/architecture/model-serving.md
+- id: ml.nlp
+  category: ml-ai
+  name: NLP Pipelines
+  owning_agent: M-35
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  tags:
+  - transformers
+  - spacy
+  - nltk
+  - llm
+  - openai
+  - embedding
+  related:
+  - ml.transformers
+  - ml.model-serving
+  domain: core
+  file: core/architecture/nlp.md
+- id: ml.transformers
+  category: ml-ai
+  name: Transformer Architectures
+  owning_agent: M-35
+  maturity: stable
+  languages:
+  - python
+  tags:
+  - attention
+  - encoder
+  - decoder
+  - bert
+  - gpt
+  related:
+  - ml.nlp
+  - ml.mlops
+  domain: core
+  file: core/architecture/transformers.md
+- id: networking.dns
+  category: networking
+  name: DNS & Service Discovery
+  owning_agent: N-42
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - dns
+  - consul
+  - core-dns
+  - service-discovery
+  related:
+  - networking.proxy
+  - deployment.orchestration
+  domain: core
+  file: core/architecture/dns.md
+- id: networking.proxy
+  category: networking
+  name: Reverse Proxy
+  owning_agent: N-39
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - nginx
+  - traefik
+  - kong
+  - envoy
+  related:
+  - networking.load-balancer
+  - foundation.proxies
+  domain: core
+  file: core/architecture/proxy.md
+- id: networking.service-mesh
+  category: networking
+  name: Service Mesh
+  owning_agent: N-41
+  maturity: emerging
+  languages:
+  - any
+  tags:
+  - istio
+  - linkerd
+  - sidecar
+  - mtls
+  - envoy
+  related:
+  - networking.proxy
+  - deployment.orchestration
+  domain: core
+  file: core/architecture/service-mesh.md
+- id: observability.alerting
+  category: observability
+  name: Alerting & Paging
+  owning_agent: O-16
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - alertmanager
+  - pagerduty
+  - opsgenie
+  - slo
+  - error-budget
+  related:
+  - observability.metrics
+  - resilience.timeouts
+  domain: core
+  file: core/architecture/alerting.md
+- id: observability.metrics
+  category: observability
+  name: Metrics & Monitoring
+  owning_agent: O-14
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - prometheus
+  - datadog
+  - statsd
+  - histogram
+  - counter
+  related:
+  - observability.tracing
+  - observability.alerting
+  domain: core
+  file: core/observability/metrics.md
+- id: observability.tracing
+  category: observability
+  name: Distributed Tracing
+  owning_agent: O-15
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - opentelemetry
+  - jaeger
+  - zipkin
+  - trace-id
+  - span
+  related:
+  - observability.metrics
+  - streaming.event-streaming
+  domain: core
+  file: core/observability/tracing.md
+- id: performance.async
+  category: performance
+  name: Async Processing
+  owning_agent: P-27
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - async-await
+  - asyncio
+  - event-loop
+  - non-blocking
+  related:
+  - streaming.message-broker
+  - performance.connection-pool
+  domain: core
+  file: core/performance/async.md
+- id: performance.cdn
+  category: performance
+  name: CDN & Edge Caching
+  owning_agent: P-29
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - cloudflare
+  - cloudfront
+  - fastly
+  - edge
+  related:
+  - performance.async
+  - foundation.caching
+  domain: core
+  file: core/performance/cdn.md
+- id: performance.connection-pool
+  category: performance
+  name: Connection Pooling
+  owning_agent: P-26
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - pgbouncer
+  - pool-size
+  - max-connections
+  - pooling
+  related:
+  - data.orm
+  - foundation.connection-pooling
+  domain: core
+  file: core/performance/connection-pool.md
+- id: performance.pagination
+  category: performance
+  name: Pagination Strategy
+  owning_agent: P-28
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - cursor-pagination
+  - offset
+  - keyset
+  - limit
+  related:
+  - data.indexing
+  - performance.connection-pool
+  domain: core
+  file: core/performance/pagination.md
+- id: resilience.circuit-breaker
+  category: resilience
+  name: Circuit Breaker
+  owning_agent: R-17
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - pybreaker
+  - resilience4j
+  - hystrix
+  - opossum
+  related:
+  - resilience.retries
+  - resilience.timeouts
+  domain: core
+  file: core/resilience/circuit-breaker.md
+- id: resilience.dead-letter
+  category: resilience
+  name: Dead Letter Queues
+  owning_agent: R-20
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - dlq
+  - poison-message
+  - requeue
+  - sqs-dead-letter
+  related:
+  - streaming.message-broker
+  - resilience.retries
+  domain: core
+  file: core/resilience/dead-letter.md
+- id: resilience.retries
+  category: resilience
+  name: Retry Strategy
+  owning_agent: R-18
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - tenacity
+  - backoff
+  - exponential
+  - jitter
+  related:
+  - resilience.circuit-breaker
+  - foundation.idempotency
+  domain: core
+  file: core/resilience/retries.md
+- id: resilience.timeouts
+  category: resilience
+  name: Timeouts & Deadlines
+  owning_agent: R-19
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - connect-timeout
+  - read-timeout
+  - deadline
+  - context-timeout
+  related:
+  - resilience.circuit-breaker
+  - resilience.retries
+  domain: core
+  file: core/resilience/timeouts.md
+- id: security.dependency-scan
+  category: security
+  name: Dependency Scanning
+  owning_agent: F-09
+  maturity: emerging
+  languages:
+  - any
+  tags:
+  - snyk
+  - dependabot
+  - pip-audit
+  - trivy
+  related:
+  - deployment.ci-cd
+  - security.sanitization
+  domain: core
+  file: core/architecture/dependency-scan.md
+- id: security.headers
+  category: security
+  name: Security Headers
+  owning_agent: F-09
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - helmet
+  - csp
+  - hsts
+  - x-frame-options
+  related:
+  - security.https
+  - security.cors
+  domain: core
+  file: core/security/headers.md
+- id: security.https
+  category: security
+  name: HTTPS / TLS
+  owning_agent: F-09
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - tls
+  - ssl
+  - encryption
+  - certificates
+  related:
+  - security.cors
+  - security.headers
+  domain: core
+  file: core/security/https.md
+- id: security.sanitization
+  category: security
+  name: Input Sanitization
+  owning_agent: F-09
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - xss
+  - sql-injection
+  - sanitize
+  - escape
+  related:
+  - security.dependency-scan
+  - foundation.validation
+  domain: core
+  file: core/security/sanitization.md
+- id: security.secrets-management
+  category: security
+  name: Secrets Management
+  owning_agent: F-09
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - vault
+  - secrets
+  - credentials
+  - rotation
+  related:
+  - foundation.config
+  - security.https
+  domain: core
+  file: core/security/secrets-management.md
+- id: streaming.event-streaming
+  category: streaming
+  name: Event Streaming
+  owning_agent: S-32
+  maturity: emerging
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - kafka-streams
+  - kinesis
+  - event-driven
+  - consumer-group
+  related:
+  - streaming.message-broker
+  - observability.tracing
+  domain: core
+  file: core/architecture/event-streaming.md
+- id: streaming.live-streaming
+  category: streaming
+  name: Live Streaming
+  owning_agent: S-34
+  maturity: emerging
+  languages:
+  - python
+  - typescript
+  - go
+  tags:
+  - rtmp
+  - hls
+  - dash
+  - ffmpeg
+  - transcode
+  related:
+  - streaming.webrtc
+  - cdn.cdn
+  domain: core
+  file: core/architecture/live-streaming.md
+- id: compliance.audit-log
+  category: compliance
+  name: Audit Logging
+  owning_agent: C-44
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - audit
+  - soc2
+  - hipaa
+  - immutable-log
+  - tamper-proof
+  related:
+  - compliance.pii
+  - observability.tracing
+  - core.observability
+  domain: cross_domain
+  specializes: core.observability
+  file: cross-domain/compliance/audit-log.md
+- id: compliance.pii
+  category: compliance
+  name: PII Protection
+  owning_agent: C-43
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - java
+  tags:
+  - pii
+  - gdpr
+  - anonymize
+  - redact
+  - mask
+  related:
+  - security.sanitization
+  - compliance.audit-log
+  - core.security
+  domain: cross_domain
+  specializes: core.security
+  file: cross-domain/compliance/pii.md
+- id: streaming.message-broker
+  category: streaming
+  name: Message Broker
+  owning_agent: S-30
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - kafka
+  - rabbitmq
+  - nats
+  - pulsar
+  - sqs
+  related:
+  - streaming.event-streaming
+  - resilience.dead-letter
+  domain: cross_domain
+  file: cross-domain/messaging/message-broker.md
+- id: streaming.webrtc
+  category: streaming
+  name: WebRTC
+  owning_agent: S-33
+  maturity: emerging
+  languages:
+  - python
+  - typescript
+  - go
+  tags:
+  - webrtc
+  - mediasoup
+  - livekit
+  - p2p
+  - sfu
+  related:
+  - streaming.websockets
+  - streaming.live-streaming
+  domain: cross_domain
+  file: cross-domain/messaging/webrtc.md
+- id: streaming.websockets
+  category: streaming
+  name: WebSocket Connections
+  owning_agent: S-31
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - websocket
+  - socket-io
+  - real-time
+  - pub-sub
+  related:
+  - streaming.message-broker
+  - streaming.webrtc
+  domain: cross_domain
+  file: cross-domain/messaging/websockets.md
+- id: data.backup
+  category: data
+  name: Backup & Recovery
+  owning_agent: D-13
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - snapshot
+  - replication
+  - pitr
+  - point-in-time
+  related:
+  - data.migrations
+  - compliance.audit-log
+  domain: database
+  file: domains/database/backup.md
+- id: data.indexing
+  category: data
+  name: Database Indexing
+  owning_agent: D-12
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - b-tree
+  - composite-index
+  - covering-index
+  - query-optimization
+  related:
+  - data.orm
+  - performance.pagination
+  domain: database
+  file: domains/database/indexing.md
+- id: data.migrations
+  category: data
+  name: Database Migrations
+  owning_agent: D-11
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  - php
+  tags:
+  - alembic
+  - flyway
+  - liquibase
+  - prisma-migrate
+  related:
+  - data.orm
+  - data.backup
+  domain: database
+  file: domains/database/migrations.md
+- id: data.orm
+  category: data
+  name: ORM / Data Mapper
+  owning_agent: D-10
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  - kotlin
+  - php
+  - ruby
+  tags:
+  - sqlalchemy
+  - prisma
+  - typeorm
+  - eloquent
+  - gorm
+  related:
+  - data.migrations
+  - data.indexing
+  domain: database
+  file: domains/database/orm.md
+- id: deployment.ci-cd
+  category: deployment
+  name: CI/CD Pipelines
+  owning_agent: D-23
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - github-actions
+  - gitlab-ci
+  - jenkins
+  - pipeline
+  related:
+  - deployment.iaac
+  - security.dependency-scan
+  domain: devops
+  file: domains/devops/ci-cd.md
+- id: deployment.containers
+  category: deployment
+  name: Containerisation
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - docker
+  - dockerfile
+  - docker-compose
+  - image
+  related:
+  - deployment.orchestration
+  - deployment.ci-cd
+  domain: devops
+  file: domains/devops/containers.md
+- id: deployment.healthchecks
+  category: deployment
+  name: Health Checks
+  owning_agent: D-25
+  maturity: stable
+  languages:
+  - python
+  - typescript
+  - go
+  - java
+  tags:
+  - liveness
+  - readiness
+  - health-endpoint
+  - startup-probe
+  related:
+  - deployment.orchestration
+  - observability.metrics
+  domain: devops
+  file: domains/devops/healthchecks.md
+- id: deployment.iaac
+  category: deployment
+  name: Infrastructure as Code
+  owning_agent: D-24
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - terraform
+  - cloudformation
+  - pulumi
+  - bicep
+  related:
+  - deployment.orchestration
+  - cloud.cost-optimization
+  domain: devops
+  file: domains/devops/iaac.md
+- id: deployment.orchestration
+  category: deployment
+  name: Container Orchestration
+  owning_agent: D-22
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - kubernetes
+  - k8s
+  - helm
+  - argo-cd
+  - ecs
+  related:
+  - deployment.containers
+  - networking.service-mesh
+  domain: devops
+  file: domains/devops/orchestration.md
+- id: frontend.accessibility
+  domain: frontend
+  category: accessibility
+  name: Accessibility & Assistive Tech
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - a11y
+  - aria
+  - semantic
+  - keyboard
+  status: active
+  file: domains/frontend/accessibility.md
+- id: frontend.asset-architecture
+  domain: frontend
+  category: loading_strategy
+  name: Asset Architecture & Delivery
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - assets
+  - webp
+  - avif
+  - fonts
+  status: active
+  file: domains/frontend/asset-architecture.md
+- id: frontend.browser-runtime
+  domain: frontend
+  category: runtime_performance
+  name: Browser Runtime Observability
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - error-boundary
+  - sentry
+  - rum
+  status: active
+  specializes: core.observability
+  related:
+  - core.observability
+  file: domains/frontend/browser-runtime.md
+- id: frontend.client-caching
+  domain: frontend
+  category: caching
+  name: Client-Side Caching
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - cache
+  - swr
+  - service-worker
+  - localstorage
+  status: active
+  specializes: core.caching
+  related:
+  - core.caching
+  file: domains/frontend/client-caching.md
+- id: frontend.component-architecture
+  domain: frontend
+  category: rendering
+  name: Component Architecture
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - components
+  - hierarchy
+  - props
+  status: active
+  file: domains/frontend/component-architecture.md
+- id: frontend.data-fetching
+  domain: frontend
+  category: loading_strategy
+  name: Client Data Fetching
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - swr
+  - react-query
+  - tanstack
+  - fetch
+  status: active
+  file: domains/frontend/data-fetching.md
+- id: frontend.dom-architecture
+  domain: frontend
+  category: rendering
+  name: DOM Architecture & Virtualization
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - virtualization
+  - dom
+  - nodes
+  status: active
+  file: domains/frontend/dom-architecture.md
+- id: frontend.loading
+  domain: frontend
+  category: loading_strategy
+  name: Loading Strategy & Code Splitting
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - dynamic_import
+  - lazy
+  - suspense
+  status: active
+  file: domains/frontend/loading.md
+- id: frontend.navigation
+  domain: frontend
+  category: navigation_routing
+  name: Navigation Experience
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - prefetch
+  - transitions
+  - link
+  status: active
+  file: domains/frontend/navigation.md
+- id: frontend.rendering
+  domain: frontend
+  category: rendering
+  name: Rendering Architecture
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - ssr
+  - ssg
+  - csr
+  - hydration
+  - streaming
+  status: active
+  file: domains/frontend/rendering.md
+- id: frontend.responsive-design
+  domain: frontend
+  category: rendering
+  name: Responsive Design & Viewports
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - viewport
+  - responsive
+  - media-query
+  status: active
+  file: domains/frontend/responsive-design.md
+- id: frontend.routing
+  domain: frontend
+  category: navigation_routing
+  name: Routing Architecture
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - router
+  - route
+  - boundary
+  - '404'
+  status: active
+  file: domains/frontend/routing.md
+- id: frontend.runtime-performance
+  domain: frontend
+  category: runtime_performance
+  name: Frontend Runtime Performance
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - vitals
+  - lcp
+  - cls
+  - inp
+  status: active
+  specializes: core.performance
+  related:
+  - core.performance
+  file: domains/frontend/runtime-performance.md
+- id: frontend.security
+  domain: frontend
+  category: security
+  name: Frontend Security & Content Policy
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - csp
+  - xss
+  - dangerouslysetinnerhtml
+  status: active
+  specializes: core.security
+  related:
+  - core.security
+  file: domains/frontend/security.md
+- id: frontend.state-management
+  domain: frontend
+  category: loading_strategy
+  name: State Management Architecture
+  owning_agent: D-21
+  maturity: stable
+  languages:
+  - typescript
+  - javascript
+  - html
+  - css
+  tags:
+  - state
+  - store
+  - redux
+  - zustand
+  status: active
+  file: domains/frontend/state-management.md
+- id: ml.mathematical-correctness
+  domain: ml
+  category: ml-ai
+  name: Mathematical & Numerical Correctness in ML
+  owning_agent: M-35
+  maturity: active
+  status: active
+  languages:
+  - any
+  tags:
+  - math
+  - numerical-stability
+  - loss-function
+  - logits
+  related:
+  - core.performance
+  file: domains/ml/mathematical-correctness.md
+- id: ml.optimization-hygiene
+  domain: ml
+  category: ml-ai
+  name: Training Loop & Optimization Hygiene
+  owning_agent: M-36
+  maturity: active
+  status: active
+  languages:
+  - any
+  tags:
+  - optimization
+  - scheduler
+  - training-loop
+  - optimizer
+  related:
+  - core.performance
+  file: domains/ml/optimization-hygiene.md
+- id: ml.serialization-safety
+  domain: ml
+  category: security
+  name: Model Artifact Serialization & Deserialization Safety
+  owning_agent: M-36
+  maturity: active
+  status: active
+  languages:
+  - any
+  tags:
+  - security
+  - serialization
+  - safetensors
+  - pickle
+  related:
+  - core.security
+  file: domains/ml/serialization-safety.md
+- id: networking.load-balancer
+  category: networking
+  name: Load Balancer
+  owning_agent: N-40
+  maturity: stable
+  languages:
+  - any
+  tags:
+  - alb
+  - elb
+  - lb
+  - round-robin
+  - least-connections
+  related:
+  - networking.proxy
+  - foundation.load-balancers
+  domain: networking
+  file: domains/networking/load-balancer.md
+- id: nlp.attention-masking
+  domain: nlp
+  category: nlp
+  name: Attention Masking & Numerical Probability Soundness
+  owning_agent: M-35
+  maturity: active
+  status: active
+  languages:
+  - any
+  tags:
+  - attention
+  - masking
+  - softmax
+  - numerical-stability
+  related:
+  - core.performance
+  file: domains/nlp/attention-masking.md
+- id: nlp.sequence-budget
+  domain: nlp
+  category: nlp
+  name: Sequence Length Budget & Context Boundaries
+  owning_agent: M-35
+  maturity: active
+  status: active
+  languages:
+  - any
+  tags:
+  - sequence-length
+  - truncation
+  - max-length
+  - context-window
+  related:
+  - core.performance
+  file: domains/nlp/sequence-budget.md
+- id: nlp.tensor-contracts
+  domain: nlp
+  category: nlp
+  name: Transformer Tensor Contracts & Dimensional Integrity
+  owning_agent: M-35
+  maturity: active
+  status: active
+  languages:
+  - any
+  tags:
+  - transformer
+  - tensor
+  - dimensions
+  - attention
+  related:
+  - core.performance
+  file: domains/nlp/tensor-contracts.md
+- id: nlp.tokenization-pipeline
+  domain: nlp
+  category: nlp
+  name: NLP Tokenization & Input Normalization
+  owning_agent: M-35
+  maturity: active
+  status: active
+  languages:
+  - any
+  tags:
+  - tokenization
+  - vocab
+  - huggingface
+  - embeddings
+  related:
+  - core.performance
+  file: domains/nlp/tokenization-pipeline.md
+- id: web3.key-management
+  domain: web3
+  category: web3
+  name: Non-Custodial Key Hygiene
+  owning_agent: D-41
+  maturity: draft
+  status: spec_only
+  languages:
+  - any
+  tags:
+  - private-key
+  - mnemonic
+  - signer
+  - kms
+  specializes: core.security
+  related:
+  - core.security
+  file: domains/web3/key-management.md
+- id: web3.rpc-retry
+  domain: web3
+  category: web3
+  name: RPC Provider Failover & Retry
+  owning_agent: D-41
+  maturity: draft
+  status: spec_only
+  languages:
+  - any
+  tags:
+  - rpc
+  - failover
+  - retry
+  - provider
+  specializes: core.retries
+  related:
+  - core.retries
+  file: domains/web3/rpc-retry.md
+- id: web3.transaction-lifecycle
+  domain: web3
+  category: web3
+  name: Transaction Lifecycle
+  owning_agent: D-41
+  maturity: draft
+  status: spec_only
+  languages:
+  - any
+  tags:
+  - transaction
+  - nonce
+  - receipt
+  - gas
+  file: domains/web3/transaction-lifecycle.md

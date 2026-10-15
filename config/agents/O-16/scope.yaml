@@ -1,0 +1,22 @@
+agent_id: O-16
+name: Alerting Specialist
+category: observability
+version: 0.1.0
+description: >
+  Evaluates alerting configuration, escalation policies, and on-call readiness.
+
+scanner_signals:
+    - observability.alerting
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: observability.alerting
+  report_section: "Alerting Specialist findings"
+  priority_default: medium

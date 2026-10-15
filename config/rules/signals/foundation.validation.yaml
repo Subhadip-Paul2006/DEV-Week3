@@ -1,0 +1,13 @@
+# Rule: Does the project validate incoming input?
+concept_id: foundation.validation
+requires_any:
+  - foundation.validation.presence.pydantic
+  - foundation.validation.presence.zod
+  - foundation.validation.presence.joi
+  - foundation.validation.presence.validator
+  - foundation.validation.presence.class-validator
+  - foundation.validation.presence.manual-check
+min_confidence: 0.5
+absence_signals:
+  - foundation.validation.absence
+recommendation: "Add input validation using Pydantic, Zod, Joi, or a validation library."

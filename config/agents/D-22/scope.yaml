@@ -1,0 +1,22 @@
+agent_id: D-22
+name: Orchestration Specialist
+category: deployment
+version: 0.1.0
+description: >
+  Evaluates Kubernetes deployment quality, HPA, pod disruption budgets, and resource limits.
+
+scanner_signals:
+    - deployment.orchestration
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: deployment.orchestration
+  report_section: "Orchestration Specialist findings"
+  priority_default: medium

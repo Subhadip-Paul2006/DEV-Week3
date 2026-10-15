@@ -1,0 +1,27 @@
+agent_id: F-09
+name: Security Auditor
+category: security
+version: 0.1.0
+description: >
+  Evaluates OWASP Top 10 coverage, TLS, security headers, and dependency vulnerability scanning.
+
+scanner_signals:
+    - security.https
+    - security.headers
+    - security.sanitization
+    - security.secrets-management
+    - security.dependency-scan
+    - security.cors
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: security.https, security.headers, security.sanitization, security.secrets-management, security.dependency-scan, security.cors
+  report_section: "Security Auditor findings"
+  priority_default: medium

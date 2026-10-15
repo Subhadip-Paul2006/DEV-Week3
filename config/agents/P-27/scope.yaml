@@ -1,0 +1,22 @@
+agent_id: P-27
+name: Async Performance Specialist
+category: performance
+version: 0.1.0
+description: >
+  Evaluates async architecture, event loop usage, and non-blocking patterns.
+
+scanner_signals:
+    - performance.async
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: performance.async
+  report_section: "Async Performance Specialist findings"
+  priority_default: medium

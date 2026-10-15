@@ -1,0 +1,14 @@
+# Rule: Does the project use a message broker?
+concept_id: streaming.message-broker
+requires_any:
+  - streaming.message-broker.presence.kafka
+  - streaming.message-broker.presence.rabbitmq
+  - streaming.message-broker.presence.nats
+  - streaming.message-broker.presence.pulsar
+  - streaming.message-broker.presence.redis-pubsub
+  - streaming.message-broker.presence.aws-sqs
+  - streaming.message-broker.presence.azure-servicebus
+min_confidence: 0.5
+absence_signals:
+  - streaming.message-broker.absence
+recommendation: "Use a message broker (Kafka, RabbitMQ, NATS, Redis Streams) to decouple producers and consumers."

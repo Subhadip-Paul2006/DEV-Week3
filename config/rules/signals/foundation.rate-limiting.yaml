@@ -1,0 +1,11 @@
+# Rule: Does the project enforce rate limiting?
+concept_id: foundation.rate-limiting
+requires_any:
+  - foundation.rate-limiting.presence.express-rate-limit
+  - foundation.rate-limiting.presence.slowapi
+  - foundation.rate-limiting.presence.ratelimit
+  - foundation.rate-limiting.presence.throttle
+min_confidence: 0.5
+absence_signals:
+  - foundation.rate-limiting.absence
+recommendation: "Add rate limiting (express-rate-limit, SlowAPI, Django Ratelimit) to prevent abuse."

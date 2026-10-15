@@ -1,0 +1,39 @@
+{
+  "available": true,
+  "provider": "openrouter",
+  "model": "qwen/qwen3-coder:free",
+  "executive_summary": "The FastAPI project establishes a mature production baseline with distributed caching (Redis), resilience boundaries (pybreaker circuit breaker, tenacity retries), structured database connectivity (SQLAlchemy), and observability (OpenTelemetry). However, the primary architectural gap is the absence of an idempotency key protocol on state-mutating endpoints, exposing the system to duplicate processing and race-condition mutations during client retry storms.",
+  "remediations": [
+    {
+      "concept_id": "backend.idempotency",
+      "concept_name": "Idempotency for Mutating Operations",
+      "severity": "high",
+      "status": "missing",
+      "confidence": 0.92,
+      "finding": "State-mutating endpoints lack idempotency key validation and distributed response deduplication.",
+      "evidence": [
+        {
+          "file": "app/main.py",
+          "line": 42,
+          "snippet": "@app.post('/items')\ndef create_item(item: ItemSchema):",
+          "note": "State-mutating POST endpoint lacks Idempotency-Key validation header"
+        }
+      ],
+      "why_it_matters": "Network blips and client-side retries over distributed links cause duplicate operations, phantom record creation, and inconsistent financial or inventory records without deterministic request deduplication.",
+      "architectural_impact": "Resource duplication, data drift between distributed caches and primary databases, and potential double-charging under high concurrency.",
+      "ai_reasoning": "Qwen3-Coder analyzed the repository AST facts and endpoint declarations. Downstream dependencies feature circuit breakers and retries, but upstream ingress does not validate Idempotency-Key headers, violating at-most-once delivery guarantees.",
+      "gemma_reasoning": "Qwen3-Coder analyzed the repository AST facts and endpoint declarations. Downstream dependencies feature circuit breakers and retries, but upstream ingress does not validate Idempotency-Key headers, violating at-most-once delivery guarantees.",
+      "recommended_solution": "Introduce an IdempotencyMiddleware or dependency in FastAPI utilizing Redis SETNX with TTL. Validate and store computed responses keyed by Idempotency-Key header.",
+      "implementation_steps": [
+        "1. Create app/idempotency.py defining IdempotencyKeyHeader dependency and Redis storage backend",
+        "2. Parse 'Idempotency-Key' from incoming request headers for mutating HTTP verbs (POST, PUT, PATCH)",
+        "3. Atomically check and reserve the idempotency key in Redis using `SET key IN_PROGRESS NX EX 120`",
+        "4. Return previously cached response (HTTP status, headers, body) if key is already resolved",
+        "5. Upon successful execution, persist response in Redis with a 24-hour expiration (`EX 86400`)"
+      ],
+      "validation": "Run an asynchronous integration test using pytest-asyncio and httpx sending 5 concurrent requests with identical Idempotency-Key headers. Verify exactly 1 execution reaches the service handler and all 5 receive identical HTTP 201 responses.",
+      "diagram_before": "Client ──► [Unbounded POST /items] ──► Flaky Network Retry ──► [Duplicate Database Record Created]",
+      "diagram_after": "Client (Idempotency-Key) ──► Redis Token Lock (SETNX) ──► [First Request: 201 Created | Retries: 201 From Cache]"
+    }
+  ]
+}

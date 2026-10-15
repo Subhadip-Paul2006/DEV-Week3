@@ -1,0 +1,12 @@
+# Rule: Does the project use a reverse proxy or API gateway?
+concept_id: networking.proxy
+requires_any:
+  - networking.proxy.presence.nginx
+  - networking.proxy.presence.traefik
+  - networking.proxy.presence.kong
+  - networking.proxy.presence.envoy
+  - networking.proxy.presence.api-gateway
+min_confidence: 0.5
+absence_signals:
+  - networking.proxy.absence
+recommendation: "Deploy a reverse proxy (Nginx, Traefik, Envoy) or API gateway (Kong, AWS API Gateway) in front of your services."

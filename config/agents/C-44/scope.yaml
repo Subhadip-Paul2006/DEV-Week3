@@ -1,0 +1,22 @@
+agent_id: C-44
+name: Audit Log Specialist
+category: compliance
+version: 0.1.0
+description: >
+  Evaluates audit log completeness, tamper resistance, and retention policies.
+
+scanner_signals:
+    - compliance.audit-log
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: compliance.audit-log
+  report_section: "Audit Log Specialist findings"
+  priority_default: medium

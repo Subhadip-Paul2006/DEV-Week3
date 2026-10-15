@@ -1,0 +1,22 @@
+agent_id: S-33
+name: WebRTC Specialist
+category: streaming
+version: 0.1.0
+description: >
+  Evaluates WebRTC usage, SFU/MCU selection, and peer connection management.
+
+scanner_signals:
+    - streaming.webrtc
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: streaming.webrtc
+  report_section: "WebRTC Specialist findings"
+  priority_default: medium

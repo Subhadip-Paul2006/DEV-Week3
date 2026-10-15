@@ -1,0 +1,443 @@
+version: 0.1.0
+description: 24 project categories with agent dispatch mappings
+categories:
+- id: backend
+  name: Backend API Service
+  agents:
+  - F-01
+  - F-02
+  - F-03
+  - F-04
+  - F-05
+  - F-06
+  - F-07
+  - F-08
+  - F-09
+  - D-10
+  - D-11
+  - D-12
+  - D-13
+  - O-14
+  - O-15
+  - O-16
+  - R-17
+  - R-18
+  - R-19
+  - R-20
+  - D-21
+  - D-22
+  - D-23
+  - D-24
+  - D-25
+  - P-26
+  - P-27
+  - P-28
+  - P-29
+  - N-39
+  - N-40
+  - C-43
+  - C-44
+- id: frontend
+  name: Frontend Web Application
+  agents:
+  - F-01
+  - F-03
+  - F-04
+  - F-05
+  - F-07
+  - F-08
+  - F-09
+  - D-21
+  - D-22
+  - D-23
+  - O-14
+  - N-39
+  - C-43
+  - C-44
+- id: mobile
+  name: Mobile Application
+  agents:
+  - F-01
+  - F-03
+  - F-04
+  - F-05
+  - F-06
+  - F-07
+  - F-09
+  - D-21
+  - D-23
+  - O-14
+  - C-43
+- id: fullstack
+  name: Full-Stack Application
+  agents:
+  - F-01
+  - F-02
+  - F-03
+  - F-04
+  - F-05
+  - F-06
+  - F-07
+  - F-08
+  - F-09
+  - D-10
+  - D-11
+  - D-21
+  - D-22
+  - D-23
+  - O-14
+  - O-15
+  - R-17
+  - R-18
+  - R-19
+  - P-26
+  - N-39
+  - C-43
+  - C-44
+- id: ml-pipeline
+  name: ML Training Pipeline
+  agents:
+  - M-35
+  - M-36
+  - M-37
+  - M-38
+  - D-10
+  - D-13
+  - O-14
+  - D-22
+  - R-17
+  - R-18
+  - R-19
+- id: ml-serving
+  name: ML Model Serving
+  agents:
+  - M-37
+  - M-36
+  - D-10
+  - D-21
+  - D-22
+  - O-14
+  - R-17
+  - R-18
+  - R-19
+  - P-26
+- id: data-engineering
+  name: Data Engineering
+  agents:
+  - D-10
+  - D-11
+  - D-12
+  - D-13
+  - S-30
+  - S-32
+  - O-14
+  - O-15
+  - R-17
+  - R-18
+  - R-19
+  - D-22
+  - D-23
+- id: streaming
+  name: Real-Time Streaming
+  agents:
+  - S-30
+  - S-31
+  - S-32
+  - S-33
+  - S-34
+  - R-17
+  - R-18
+  - R-19
+  - R-20
+  - O-14
+  - O-15
+  - D-22
+- id: iot
+  name: IoT / Edge
+  agents:
+  - F-01
+  - F-02
+  - F-03
+  - F-04
+  - F-09
+  - N-39
+  - N-40
+  - N-42
+  - D-21
+  - O-14
+  - R-17
+  - R-18
+- id: blockchain
+  name: Blockchain / Web3
+  agents:
+  - F-01
+  - F-06
+  - F-09
+  - D-10
+  - D-13
+  - N-39
+  - N-40
+  - C-43
+  - C-44
+  - R-17
+- id: gaming
+  name: Gaming / Real-Time
+  agents:
+  - S-30
+  - S-31
+  - S-33
+  - P-26
+  - P-27
+  - R-17
+  - R-18
+  - R-19
+  - N-40
+  - N-42
+- id: devops-platform
+  name: DevOps Platform
+  agents:
+  - D-21
+  - D-22
+  - D-23
+  - D-24
+  - D-25
+  - N-39
+  - N-40
+  - N-42
+  - O-14
+  - O-15
+  - O-16
+- id: cybersecurity
+  name: Cybersecurity Tooling
+  agents:
+  - F-09
+  - C-43
+  - C-44
+  - N-39
+  - N-40
+  - N-42
+  - O-14
+  - O-15
+  - O-16
+  - R-17
+  - R-18
+  - R-19
+- id: voice-ai
+  name: Voice AI Application
+  agents:
+  - M-35
+  - M-37
+  - S-30
+  - S-31
+  - R-17
+  - R-18
+  - O-14
+  - F-06
+  - F-09
+- id: video-platform
+  name: Video Platform
+  agents:
+  - S-34
+  - S-33
+  - S-31
+  - P-26
+  - P-27
+  - N-40
+  - O-14
+  - D-22
+  - R-17
+  - R-18
+  - R-19
+- id: saas
+  name: SaaS Platform
+  agents:
+  - F-01
+  - F-02
+  - F-03
+  - F-04
+  - F-05
+  - F-06
+  - F-07
+  - F-08
+  - F-09
+  - D-10
+  - D-11
+  - D-21
+  - D-22
+  - D-23
+  - O-14
+  - O-15
+  - R-17
+  - R-18
+  - P-26
+  - N-39
+  - C-43
+  - C-44
+- id: ecommerce
+  name: E-Commerce
+  agents:
+  - F-01
+  - F-02
+  - F-03
+  - F-04
+  - F-06
+  - F-07
+  - F-08
+  - F-09
+  - D-10
+  - D-11
+  - D-21
+  - D-22
+  - O-14
+  - R-17
+  - R-18
+  - P-26
+  - N-39
+  - C-43
+- id: fintech
+  name: Fintech
+  agents:
+  - F-01
+  - F-02
+  - F-04
+  - F-06
+  - F-07
+  - F-09
+  - D-10
+  - D-11
+  - D-13
+  - C-43
+  - C-44
+  - N-39
+  - R-17
+  - R-18
+  - R-19
+  - O-14
+  - O-15
+  - O-16
+- id: healthtech
+  name: HealthTech
+  agents:
+  - F-01
+  - F-02
+  - F-03
+  - F-04
+  - F-06
+  - F-09
+  - D-10
+  - D-11
+  - D-13
+  - C-43
+  - C-44
+  - O-14
+  - O-15
+  - O-16
+  - R-17
+  - R-18
+- id: edtech
+  name: EdTech
+  agents:
+  - F-01
+  - F-03
+  - F-04
+  - F-06
+  - F-09
+  - D-10
+  - O-14
+  - S-30
+  - M-35
+  - R-17
+  - N-39
+- id: api-gateway
+  name: API Gateway
+  agents:
+  - F-01
+  - F-02
+  - F-03
+  - F-04
+  - F-07
+  - F-08
+  - F-09
+  - N-39
+  - N-40
+  - N-42
+  - O-14
+  - R-17
+  - R-18
+  - R-19
+  - C-43
+  - C-44
+- id: chatbot
+  name: Chatbot / Conversational AI
+  agents:
+  - M-35
+  - M-37
+  - F-06
+  - F-07
+  - S-30
+  - S-31
+  - R-17
+  - R-18
+  - O-14
+- id: search-engine
+  name: Search Engine
+  agents:
+  - D-10
+  - D-12
+  - P-26
+  - P-27
+  - S-30
+  - S-32
+  - O-14
+  - R-17
+  - R-18
+  - D-22
+- id: analytics-platform
+  name: Analytics Platform
+  agents:
+  - D-10
+  - D-11
+  - D-12
+  - S-30
+  - S-32
+  - O-14
+  - O-15
+  - O-16
+  - P-26
+  - P-27
+  - R-17
+  - R-18
+  - D-22
+- id: low-code
+  name: Low-Code Platform
+  agents:
+  - F-01
+  - F-03
+  - F-04
+  - F-05
+  - D-21
+  - D-22
+  - D-23
+  - O-14
+  - N-39
+  - C-43
+- id: cli-tool
+  name: CLI / Developer Tool
+  agents:
+  - F-01
+  - F-02
+  - F-03
+  - F-04
+  - F-05
+  - R-17
+  - R-18
+  - R-19
+- id: library-sdk
+  name: Library / SDK
+  agents:
+  - F-01
+  - F-03
+  - F-04
+  - F-05
+  - R-17
+  - R-18

@@ -1,0 +1,10 @@
+# Rule: Does the project set explicit timeouts?
+concept_id: resilience.timeouts
+requires_any:
+  - resilience.timeouts.presence.timeout
+  - resilience.timeouts.presence.read-timeout
+  - resilience.timeouts.presence.connect-timeout
+min_confidence: 0.5
+absence_signals:
+  - resilience.timeouts.absence
+recommendation: "Set explicit connect, read, and write timeouts on all HTTP clients and DB connections."

@@ -1,0 +1,22 @@
+agent_id: M-36
+name: MLOps Specialist
+category: ml-ai
+version: 0.1.0
+description: >
+  Evaluates ML pipeline maturity, experiment tracking, and drift detection.
+
+scanner_signals:
+    - ml.mlops
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: ml.mlops
+  report_section: "MLOps Specialist findings"
+  priority_default: medium

@@ -1,0 +1,22 @@
+agent_id: S-30
+name: Message Broker Specialist
+category: streaming
+version: 0.1.0
+description: >
+  Evaluates message broker selection, topic design, and consumer group configuration.
+
+scanner_signals:
+    - streaming.message-broker
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: streaming.message-broker
+  report_section: "Message Broker Specialist findings"
+  priority_default: medium

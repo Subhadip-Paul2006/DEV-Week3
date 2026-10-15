@@ -1,0 +1,11 @@
+# Rule: Does the project use database indexes?
+concept_id: data.indexing
+requires_any:
+  - data.indexing.presence.index
+  - data.indexing.presence.create-index
+  - data.indexing.presence.unique-index
+  - data.indexing.presence.index-model
+min_confidence: 0.5
+absence_signals:
+  - data.indexing.absence
+recommendation: "Add database indexes on high-cardinality columns used in WHERE/ORDER BY queries."

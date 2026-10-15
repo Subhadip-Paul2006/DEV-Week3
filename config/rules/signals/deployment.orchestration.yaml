@@ -1,0 +1,11 @@
+# Rule: Does the project use container orchestration?
+concept_id: deployment.orchestration
+requires_any:
+  - deployment.orchestration.presence.kubernetes
+  - deployment.orchestration.presence.helm
+  - deployment.orchestration.presence.argo
+  - deployment.orchestration.presence.ecs
+min_confidence: 0.5
+absence_signals:
+  - deployment.orchestration.absence
+recommendation: "Deploy using Kubernetes or a managed orchestrator (ECS, Cloud Run) for auto-scaling and self-healing."

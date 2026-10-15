@@ -1,0 +1,22 @@
+agent_id: F-08
+name: Rate Limiting Specialist
+category: foundation
+version: 0.1.0
+description: >
+  Evaluates rate limiting, throttling, and API abuse prevention.
+
+scanner_signals:
+    - foundation.rate-limiting
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: foundation.rate-limiting
+  report_section: "Rate Limiting Specialist findings"
+  priority_default: medium

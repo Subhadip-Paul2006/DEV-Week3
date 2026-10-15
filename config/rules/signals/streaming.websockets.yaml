@@ -1,0 +1,11 @@
+# Rule: Does the project support WebSocket communication?
+concept_id: streaming.websockets
+requires_any:
+  - streaming.websockets.presence.websockets
+  - streaming.websockets.presence.socket-io
+  - streaming.websockets.presence.fastapi-websocket
+  - streaming.websockets.presence.ws-lib
+min_confidence: 0.5
+absence_signals:
+  - streaming.websockets.absence
+recommendation: "Add WebSocket support (ws, Socket.IO, FastAPI WebSocket) for real-time bidirectional communication."

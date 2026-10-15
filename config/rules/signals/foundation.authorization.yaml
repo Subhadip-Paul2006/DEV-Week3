@@ -1,0 +1,12 @@
+# Rule: Does the project enforce authorization?
+concept_id: foundation.authorization
+requires_any:
+  - foundation.authorization.presence.rbac
+  - foundation.authorization.presence.casbin
+  - foundation.authorization.presence.policy
+  - foundation.authorization.presence.role-check
+  - foundation.authorization.presence.permission-decorator
+min_confidence: 0.5
+absence_signals:
+  - foundation.authorization.absence
+recommendation: "Add role-based or attribute-based access control (RBAC/ABAC)."

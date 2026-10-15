@@ -1,0 +1,23 @@
+agent_id: M-35
+name: NLP Specialist
+category: ml-ai
+version: 0.1.0
+description: >
+  Evaluates NLP/transformer model selection, tokenisation, and inference patterns.
+
+scanner_signals:
+    - ml.nlp
+    - ml.transformers
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: ml.nlp, ml.transformers
+  report_section: "NLP Specialist findings"
+  priority_default: medium

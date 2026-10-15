@@ -1,0 +1,11 @@
+# Rule: Does the project have a dead-letter queue?
+concept_id: resilience.dead-letter
+requires_any:
+  - resilience.dead-letter.presence.dlq
+  - resilience.dead-letter.presence.dead-letter-queue
+  - resilience.dead-letter.presence.dead_letter
+  - resilience.dead-letter.presence.requeue
+min_confidence: 0.5
+absence_signals:
+  - resilience.dead-letter.absence
+recommendation: "Add a dead-letter queue to capture poison messages without blocking the main processing pipeline."

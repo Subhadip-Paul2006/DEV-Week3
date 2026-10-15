@@ -1,0 +1,22 @@
+agent_id: R-17
+name: Circuit Breaker Specialist
+category: resilience
+version: 0.1.0
+description: >
+  Evaluates circuit breaker usage, fallback paths, and failure isolation.
+
+scanner_signals:
+    - resilience.circuit-breaker
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: resilience.circuit-breaker
+  report_section: "Circuit Breaker Specialist findings"
+  priority_default: medium

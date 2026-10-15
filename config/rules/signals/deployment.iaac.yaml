@@ -1,0 +1,12 @@
+# Rule: Does the project use Infrastructure as Code?
+concept_id: deployment.iaac
+requires_any:
+  - deployment.iaac.presence.terraform
+  - deployment.iaac.presence.cloudformation
+  - deployment.iaac.presence.pulumi
+  - deployment.iaac.presence.arm-template
+  - deployment.iaac.presence.bicep
+min_confidence: 0.5
+absence_signals:
+  - deployment.iaac.absence
+recommendation: "Use Infrastructure as Code (Terraform, CloudFormation, Pulumi) for reproducible infrastructure."

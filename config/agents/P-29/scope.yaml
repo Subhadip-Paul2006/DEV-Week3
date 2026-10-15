@@ -1,0 +1,22 @@
+agent_id: P-29
+name: CDN & Edge Specialist
+category: performance
+version: 0.1.0
+description: >
+  Evaluates CDN configuration, cache policies, and edge optimisation.
+
+scanner_signals:
+    - performance.cdn
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: performance.cdn
+  report_section: "CDN & Edge Specialist findings"
+  priority_default: medium

@@ -1,0 +1,11 @@
+# Rule: Does the project use database connection pooling?
+concept_id: performance.connection-pool
+requires_any:
+  - performance.connection-pool.presence.pool
+  - performance.connection-pool.presence.pool-size
+  - performance.connection-pool.presence.pgbouncer
+  - performance.connection-pool.presence.connection-pool
+min_confidence: 0.5
+absence_signals:
+  - performance.connection-pool.absence
+recommendation: "Use a connection pool (SQLAlchemy pool, PgBouncer, HikariCP) for database connections."

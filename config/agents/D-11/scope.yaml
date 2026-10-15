@@ -1,0 +1,22 @@
+agent_id: D-11
+name: Migration Specialist
+category: data
+version: 0.1.0
+description: >
+  Evaluates database migration strategy, versioning, and rollback capability.
+
+scanner_signals:
+    - data.migrations
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: data.migrations
+  report_section: "Migration Specialist findings"
+  priority_default: medium

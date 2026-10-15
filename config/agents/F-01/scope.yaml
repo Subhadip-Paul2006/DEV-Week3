@@ -1,0 +1,36 @@
+agent_id: F-01
+name: Foundation Architect
+category: foundation
+version: 0.1.0
+description: >
+  Evaluates fundamental architecture patterns, design principles, and system boundaries that apply to every project regardless of technology stack.
+
+scanner_signals:
+    - foundation.caching
+    - foundation.hld
+    - foundation.lld
+    - foundation.client-server
+    - foundation.protocols
+    - foundation.proxies
+    - foundation.load-balancers
+    - foundation.message-queues
+    - foundation.db-scaling
+    - foundation.connection-pooling
+    - foundation.consistent-hashing
+    - foundation.cap-consistency
+    - foundation.latency-bandwidth
+    - foundation.idempotency
+    - foundation.fault-tolerance
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: foundation.caching, foundation.hld, foundation.lld, foundation.client-server, foundation.protocols, foundation.proxies, foundation.load-balancers, foundation.message-queues, foundation.db-scaling, foundation.connection-pooling, foundation.consistent-hashing, foundation.cap-consistency, foundation.latency-bandwidth, foundation.idempotency, foundation.fault-tolerance
+  report_section: "Foundation Architect findings"
+  priority_default: medium

@@ -1,0 +1,23 @@
+agent_id: F-02
+name: Configuration Auditor
+category: foundation
+version: 0.1.0
+description: >
+  Audits environment configuration management, ensuring secrets and settings are externalised and never hardcoded.
+
+scanner_signals:
+    - foundation.config
+    - foundation.hld
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: foundation.config, foundation.hld
+  report_section: "Configuration Auditor findings"
+  priority_default: medium

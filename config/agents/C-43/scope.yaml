@@ -1,0 +1,22 @@
+agent_id: C-43
+name: PII Specialist
+category: compliance
+version: 0.1.0
+description: >
+  Evaluates PII detection, data classification, and privacy controls.
+
+scanner_signals:
+    - compliance.pii
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: compliance.pii
+  report_section: "PII Specialist findings"
+  priority_default: medium

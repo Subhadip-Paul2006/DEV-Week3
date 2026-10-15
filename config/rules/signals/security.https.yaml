@@ -1,0 +1,11 @@
+# Rule: Does the project enforce HTTPS / TLS?
+concept_id: security.https
+requires_any:
+  - security.https.presence.force-ssl
+  - security.https.presence.https-redirect
+  - security.https.presence.certbot
+  - security.https.presence.tls-config
+min_confidence: 0.5
+absence_signals:
+  - security.https.absence
+recommendation: "Enforce HTTPS/TLS in production via redirects and managed certs (Let's Encrypt, ACM)."

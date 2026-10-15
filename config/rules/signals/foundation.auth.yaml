@@ -1,0 +1,13 @@
+# Rule: Does the project implement authentication?
+concept_id: foundation.auth
+requires_any:
+  - foundation.auth.presence.jwt
+  - foundation.auth.presence.oauth
+  - foundation.auth.presence.passport
+  - foundation.auth.presence.session
+  - foundation.auth.presence.bcrypt
+  - foundation.auth.presence.argon2
+min_confidence: 0.5
+absence_signals:
+  - foundation.auth.absence
+recommendation: "Implement authentication using JWT, OAuth, sessions, or a dedicated auth library."

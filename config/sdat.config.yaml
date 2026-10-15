@@ -1,0 +1,57 @@
+# SDAT Configuration — checked in, no secrets
+# See SECURITY.md §6 for secret-handling rules.
+
+project_type: backend
+
+scanners:
+  enabled: [python, typescript, go, rust, c_cpp, php, java]
+  max_files_per_scan: 50000
+  file_size_limit_mb: 5
+  exclude_paths:
+    - node_modules
+    - .git
+    - dist
+    - build
+    - __pycache__
+    - vendor
+    - .next
+    - .sdat-cache
+    - .venv
+    - venv
+
+auditor:
+  provider: none              # Select a supported provider with SDAT_AI_PROVIDER or this setting
+  timeout_seconds: 30
+  context_budget_tokens: 4000
+  max_output_tokens: 2048
+  retry_on_malformed: true
+  max_retries: 1
+
+renderer:
+  output_dir: docs/audit
+  group_by: category          # or: priority
+  snippet_max_lines: 8
+
+agents:
+  max_concurrent_agents: 4
+  timeout_seconds: 30
+  foundation:
+    enabled: [F-01, F-02, F-03, F-04, F-05, F-06, F-07, F-08, F-09, F-10,
+              F-11, F-12, F-13, F-14, F-15, F-16, F-17, F-18, F-19, F-20]
+  domain:
+    enabled: [D-01, D-21, D-22, D-23]
+  fallback_agent: F-99
+
+research:
+  enabled: false              # model-generated context only; no live research provider is configured
+
+paths:
+  exclude:
+    - node_modules
+    - .git
+    - dist
+    - build
+    - __pycache__
+    - vendor
+    - .next
+    - .sdat-cache

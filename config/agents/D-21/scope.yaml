@@ -1,0 +1,64 @@
+agent_id: D-21
+name: Frontend Specialist
+category: frontend
+version: 0.2.0
+description: >
+  Evaluates frontend system design across rendering, routing, loading strategy,
+  DOM architecture, responsive design, assets, state, data fetching, and security.
+
+scanner_signals:
+  - frontend.rendering
+  - frontend.routing
+  - frontend.loading
+  - frontend.runtime-performance
+  - frontend.component-architecture
+  - frontend.responsive-design
+  - frontend.assets
+  - frontend.state-management
+  - frontend.data-fetching
+  - frontend.caching
+  - frontend.error-handling
+  - frontend.accessibility
+  - frontend.security
+  - frontend.network-api
+  - frontend.perceived-latency
+  - frontend.web3
+
+evaluation:
+  primary_file_patterns:
+    - "**/*.tsx"
+    - "**/*.jsx"
+    - "**/*.html"
+    - "**/*.vue"
+    - "**/*.svelte"
+    - "**/*.astro"
+  secondary_file_patterns:
+    - "**/*.css"
+    - "**/*.scss"
+    - "**/*.ts"
+    - "**/*.js"
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned:
+    - frontend.rendering
+    - frontend.routing
+    - frontend.loading
+    - frontend.runtime-performance
+    - frontend.component-architecture
+    - frontend.responsive-design
+    - frontend.assets
+    - frontend.state-management
+    - frontend.data-fetching
+    - frontend.caching
+    - frontend.error-handling
+    - frontend.accessibility
+    - frontend.security
+    - frontend.network-api
+    - frontend.perceived-latency
+    - frontend.web3
+  report_section: "Frontend Architecture findings"
+  priority_default: high

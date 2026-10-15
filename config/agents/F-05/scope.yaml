@@ -1,0 +1,22 @@
+agent_id: F-05
+name: Validation Specialist
+category: foundation
+version: 0.1.0
+description: >
+  Evaluates input validation, schema enforcement, and sanitization patterns.
+
+scanner_signals:
+    - foundation.validation
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: foundation.validation
+  report_section: "Validation Specialist findings"
+  priority_default: medium

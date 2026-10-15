@@ -1,0 +1,11 @@
+# Rule: Are static assets served via a CDN?
+concept_id: performance.cdn
+requires_any:
+  - performance.cdn.presence.cloudfront
+  - performance.cdn.presence.cloudflare
+  - performance.cdn.presence.fastly
+  - performance.cdn.presence.akamai
+min_confidence: 0.5
+absence_signals:
+  - performance.cdn.absence
+recommendation: "Use a CDN (CloudFront, Cloudflare, Fastly) to reduce origin load and global latency."

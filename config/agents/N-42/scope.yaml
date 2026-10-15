@@ -1,0 +1,22 @@
+agent_id: N-42
+name: DNS Specialist
+category: networking
+version: 0.1.0
+description: >
+  Evaluates DNS configuration, service discovery, and failover policies.
+
+scanner_signals:
+    - networking.dns
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: networking.dns
+  report_section: "DNS Specialist findings"
+  priority_default: medium

@@ -1,0 +1,22 @@
+agent_id: R-19
+name: Timeout Specialist
+category: resilience
+version: 0.1.0
+description: >
+  Evaluates timeout configuration, deadline enforcement, and graceful degradation.
+
+scanner_signals:
+    - resilience.timeouts
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: resilience.timeouts
+  report_section: "Timeout Specialist findings"
+  priority_default: medium

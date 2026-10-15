@@ -1,0 +1,90 @@
+agent_id: D-01
+name: Backend Specialist
+category: backend
+version: 0.2.0
+description: >
+  Evaluates backend system design across API architecture, request lifecycle,
+  service boundaries, auth, input validation, error handling, timeouts, retries,
+  idempotency, rate limiting, caching, async workers, database interaction,
+  connection pooling, transaction boundaries, concurrency, and observability.
+
+scanner_signals:
+  - backend.api-architecture
+  - backend.request-lifecycle
+  - backend.service-boundaries
+  - backend.authentication
+  - backend.authorization
+  - backend.input-validation
+  - backend.error-handling
+  - backend.timeout-management
+  - backend.retry-architecture
+  - backend.idempotency
+  - backend.rate-limiting
+  - backend.caching
+  - backend.async-processing
+  - backend.background-jobs
+  - backend.database-interaction
+  - backend.connection-pooling
+  - backend.external-service-integration
+  - backend.transaction-boundaries
+  - backend.concurrency
+  - backend.resource-lifecycle
+  - backend.observability
+  - backend.security
+  - backend.performance
+  - backend.scalability
+  - backend.resilience
+
+evaluation:
+  primary_file_patterns:
+    - "**/*.py"
+    - "**/*.go"
+    - "**/*.ts"
+    - "**/*.js"
+    - "**/*.java"
+    - "**/*.kt"
+    - "**/*.rs"
+    - "**/*.php"
+    - "**/*.rb"
+    - "**/*.cs"
+  secondary_file_patterns:
+    - "**/routes/**"
+    - "**/controllers/**"
+    - "**/handlers/**"
+    - "**/services/**"
+    - "**/models/**"
+    - "**/repositories/**"
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned:
+    - backend.api-architecture
+    - backend.request-lifecycle
+    - backend.service-boundaries
+    - backend.authentication
+    - backend.authorization
+    - backend.input-validation
+    - backend.error-handling
+    - backend.timeout-management
+    - backend.retry-architecture
+    - backend.idempotency
+    - backend.rate-limiting
+    - backend.caching
+    - backend.async-processing
+    - backend.background-jobs
+    - backend.database-interaction
+    - backend.connection-pooling
+    - backend.external-service-integration
+    - backend.transaction-boundaries
+    - backend.concurrency
+    - backend.resource-lifecycle
+    - backend.observability
+    - backend.security
+    - backend.performance
+    - backend.scalability
+    - backend.resilience
+  report_section: "Backend Specialist findings"
+  priority_default: high

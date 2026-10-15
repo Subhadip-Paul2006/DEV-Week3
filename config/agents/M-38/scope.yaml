@@ -1,0 +1,22 @@
+agent_id: M-38
+name: Feature Store Specialist
+category: ml-ai
+version: 0.1.0
+description: >
+  Evaluates feature store usage, feature consistency, and online/offline parity.
+
+scanner_signals:
+    - ml.feature-store
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: ml.feature-store
+  report_section: "Feature Store Specialist findings"
+  priority_default: medium

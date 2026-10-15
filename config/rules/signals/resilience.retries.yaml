@@ -1,0 +1,13 @@
+# Rule: Does the project implement retries with backoff?
+concept_id: resilience.retries
+requires_any:
+  - resilience.retries.presence.tenacity
+  - resilience.retries.presence.backoff
+  - resilience.retries.presence.retry-decorator
+  - resilience.retries.presence.exponential-backoff
+min_confidence: 0.5
+absence_signals:
+  - resilience.retries.absence
+misconfiguration_signals:
+  - resilience.retries.misconfig.fixed-retry
+recommendation: "Use exponential backoff with jitter (tenacity, Polly, or resilience4j). Avoid fixed-interval retries."

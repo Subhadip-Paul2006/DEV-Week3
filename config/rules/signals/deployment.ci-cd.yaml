@@ -1,0 +1,13 @@
+# Rule: Does the project have a CI/CD pipeline?
+concept_id: deployment.ci-cd
+requires_any:
+  - deployment.ci-cd.presence.github-actions
+  - deployment.ci-cd.presence.gitlab-ci
+  - deployment.ci-cd.presence.jenkins
+  - deployment.ci-cd.presence.circleci
+  - deployment.ci-cd.presence.azure-pipelines
+  - deployment.ci-cd.presence.docker-compose
+min_confidence: 0.5
+absence_signals:
+  - deployment.ci-cd.absence
+recommendation: "Set up a CI/CD pipeline (GitHub Actions, GitLab CI, Jenkins) to automate testing and deployment."

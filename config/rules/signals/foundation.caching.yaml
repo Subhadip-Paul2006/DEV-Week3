@@ -1,0 +1,10 @@
+# Rule: Does the project use a caching layer?
+concept_id: foundation.caching
+requires_any:
+  - foundation.caching.presence.redis
+  - foundation.caching.presence.memcache
+  - foundation.caching.presence.lru-cache
+min_confidence: 0.5
+absence_signals:
+  - foundation.caching.absence
+recommendation: "Add a caching layer (Redis, Memcached, or functools.lru_cache) to reduce latency and DB load."

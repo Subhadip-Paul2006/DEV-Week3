@@ -1,0 +1,11 @@
+# Rule: Does the project set security headers?
+concept_id: security.headers
+requires_any:
+  - security.headers.presence.helmet
+  - security.headers.presence.hsts
+  - security.headers.presence.csp
+  - security.headers.presence.x-frame-options
+min_confidence: 0.5
+absence_signals:
+  - security.headers.absence
+recommendation: "Set security headers using Helmet (Express) or a custom middleware (HSTS, CSP, X-Frame-Options)."

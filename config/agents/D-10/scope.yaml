@@ -1,0 +1,22 @@
+agent_id: D-10
+name: Data Architect
+category: data
+version: 0.1.0
+description: >
+  Evaluates data modelling, ORM usage, query patterns, and schema design.
+
+scanner_signals:
+    - data.orm
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: data.orm
+  report_section: "Data Architect findings"
+  priority_default: medium

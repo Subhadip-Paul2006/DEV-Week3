@@ -1,0 +1,22 @@
+agent_id: N-39
+name: Proxy Specialist
+category: networking
+version: 0.1.0
+description: >
+  Evaluates reverse proxy configuration, routing rules, and middleware chains.
+
+scanner_signals:
+    - networking.proxy
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: networking.proxy
+  report_section: "Proxy Specialist findings"
+  priority_default: medium

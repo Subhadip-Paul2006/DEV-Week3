@@ -1,0 +1,202 @@
+# Swarm Agent Map — maps concept categories to SDAT agents
+# Used by orchestrator in Phase 2+ for dynamic dispatch.
+# Phase 0: all foundation agents always-on; domain agents empty.
+
+foundation:
+  always_on: true
+  agents:
+    - id: F-01
+      name: caching_agent
+      category: foundation
+      directory: f01_caching_agent
+      concept_ids: [foundation.caching]
+
+    - id: F-02
+      name: hld_agent
+      category: foundation
+      directory: f02_hld_agent
+      concept_ids: [foundation.hld]
+
+    - id: F-03
+      name: lld_agent
+      category: foundation
+      directory: f03_lld_agent
+      concept_ids: [foundation.lld]
+
+    - id: F-04
+      name: circuit_breaker_agent
+      category: foundation
+      directory: f04_circuit_breaker_agent
+      concept_ids: [resilience.circuit-breaker]
+
+    - id: F-05
+      name: retries_agent
+      category: foundation
+      directory: f05_retries_agent
+      concept_ids: [resilience.retries]
+
+    - id: F-06
+      name: connection_pooling_agent
+      category: foundation
+      directory: f06_connection_pooling_agent
+      concept_ids: [foundation.connection-pooling]
+
+    - id: F-07
+      name: message_queues_agent
+      category: foundation
+      directory: f07_message_queues_agent
+      concept_ids: [foundation.message-queues]
+
+    - id: F-08
+      name: fault_tolerance_agent
+      category: foundation
+      directory: f08_fault_tolerance_agent
+      concept_ids: [foundation.fault-tolerance]
+
+    - id: F-09
+      name: idempotency_agent
+      category: foundation
+      directory: f09_idempotency_agent
+      concept_ids: [foundation.idempotency]
+
+    - id: F-10
+      name: cap_consistency_agent
+      category: foundation
+      directory: f10_cap_consistency_agent
+      concept_ids: [foundation.cap-consistency]
+
+    - id: F-11
+      name: db_scaling_agent
+      category: foundation
+      directory: f11_db_scaling_agent
+      concept_ids: [foundation.db-scaling]
+
+    - id: F-12
+      name: consistent_hashing_agent
+      category: foundation
+      directory: f12_consistent_hashing_agent
+      concept_ids: [foundation.consistent-hashing]
+
+    - id: F-13
+      name: rate_limiting_agent
+      category: foundation
+      directory: f13_rate_limiting_agent
+      concept_ids: [foundation.rate-limiting]
+
+    - id: F-14
+      name: load_balancers_agent
+      category: foundation
+      directory: f14_load_balancers_agent
+      concept_ids: [foundation.load-balancers]
+
+    - id: F-15
+      name: proxies_agent
+      category: foundation
+      directory: f15_proxies_agent
+      concept_ids: [foundation.proxies]
+
+    - id: F-16
+      name: protocols_agent
+      category: foundation
+      directory: f16_protocols_agent
+      concept_ids: [foundation.protocols]
+
+    - id: F-17
+      name: client_server_agent
+      category: foundation
+      directory: f17_client_server_agent
+      concept_ids: [foundation.client-server]
+
+    - id: F-18
+      name: latency_bandwidth_agent
+      category: foundation
+      directory: f18_latency_bandwidth_agent
+      concept_ids: [foundation.latency-bandwidth]
+
+    - id: F-19
+      name: observability_agent
+      category: foundation
+      directory: f19_observability_agent
+      concept_ids: [foundation.observability]
+
+    - id: F-20
+      name: security_fundamentals_agent
+      category: foundation
+      directory: f20_security_fundamentals_agent
+      concept_ids: [foundation.security-fundamentals]
+
+    - id: F-99
+      name: general_agent
+      category: foundation
+      directory: f99_general_agent
+      concept_ids: []              # fallback: claims any unclaimed concept
+
+domain:
+  always_on: false
+  agents:
+    - id: D-01
+      name: backend_agent
+      category: backend
+      directory: d01_backend_agent
+      concept_ids:
+        - backend.api-architecture
+        - backend.request-lifecycle
+        - backend.service-boundaries
+        - backend.authentication
+        - backend.authorization
+        - backend.input-validation
+        - backend.error-handling
+        - backend.timeout-management
+        - backend.retry-architecture
+        - backend.idempotency
+        - backend.rate-limiting
+        - backend.caching
+        - backend.async-processing
+        - backend.background-jobs
+        - backend.database-interaction
+        - backend.connection-pooling
+        - backend.external-service-integration
+        - backend.transaction-boundaries
+        - backend.concurrency
+        - backend.resource-lifecycle
+        - backend.observability
+        - backend.security
+        - backend.performance
+        - backend.scalability
+        - backend.resilience
+
+    - id: D-21
+      name: frontend_agent
+      category: frontend
+      directory: d21_frontend_agent
+      concept_ids:
+        - frontend.rendering
+        - frontend.routing
+        - frontend.loading
+        - frontend.runtime-performance
+        - frontend.component-architecture
+        - frontend.responsive-design
+        - frontend.assets
+        - frontend.state-management
+        - frontend.data-fetching
+        - frontend.caching
+        - frontend.error-handling
+        - frontend.accessibility
+        - frontend.security
+        - frontend.network-api
+        - frontend.perceived-latency
+        - frontend.web3
+
+    - id: D-22
+      name: ml_knowledge_pack_agent
+      category: ml
+      implementation: sdat.ml.knowledge_pack.MLKnowledgePack
+      concept_ids: [ml.mathematical-correctness, ml.optimization-hygiene, ml.serialization-safety]
+
+    - id: D-23
+      name: nlp_knowledge_pack_agent
+      category: nlp
+      implementation: sdat.nlp.knowledge_pack.NLPKnowledgePack
+      concept_ids: [nlp.tensor-contracts, nlp.attention-masking, nlp.tokenization-pipeline, nlp.sequence-budget]
+
+

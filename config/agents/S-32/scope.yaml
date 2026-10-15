@@ -1,0 +1,22 @@
+agent_id: S-32
+name: Event Streaming Specialist
+category: streaming
+version: 0.1.0
+description: >
+  Evaluates event streaming architecture, partition strategy, and consumer lag.
+
+scanner_signals:
+    - streaming.event-streaming
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: streaming.event-streaming
+  report_section: "Event Streaming Specialist findings"
+  priority_default: medium

@@ -1,0 +1,14 @@
+# Rule: Does the project use database migrations?
+concept_id: data.migrations
+requires_any:
+  - data.migrations.presence.alembic
+  - data.migrations.presence.flyway
+  - data.migrations.presence.liquibase
+  - data.migrations.presence.knex-migrate
+  - data.migrations.presence.prisma-migrate
+  - data.migrations.presence.django-migrate
+  - data.migrations.presence.migration-dir
+min_confidence: 0.5
+absence_signals:
+  - data.migrations.absence
+recommendation: "Use a migration tool (Alembic, Flyway, Prisma Migrate, Django migrations) to evolve schemas safely."

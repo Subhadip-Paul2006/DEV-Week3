@@ -1,0 +1,12 @@
+# Rule: Is CORS configured with an explicit allowlist?
+concept_id: security.cors
+requires_any:
+  - security.cors.presence.cors
+  - security.cors.presence.fastapi-cors
+  - security.cors.presence.express-cors
+min_confidence: 0.5
+absence_signals:
+  - security.cors.absence
+misconfiguration_signals:
+  - security.cors.misconfig.wildcard-origin
+recommendation: "Configure CORS with an explicit allowlist of origins. Avoid Access-Control-Allow-Origin: *."

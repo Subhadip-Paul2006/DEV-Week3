@@ -1,0 +1,22 @@
+agent_id: R-20
+name: DLQ Specialist
+category: resilience
+version: 0.1.0
+description: >
+  Evaluates dead letter queue configuration, replay capability, and poison message handling.
+
+scanner_signals:
+    - resilience.dead-letter
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: resilience.dead-letter
+  report_section: "DLQ Specialist findings"
+  priority_default: medium

@@ -1,0 +1,22 @@
+agent_id: N-40
+name: Load Balancer Specialist
+category: networking
+version: 0.1.0
+description: >
+  Evaluates load balancer configuration, health checks, and session affinity.
+
+scanner_signals:
+    - networking.load-balancer
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: networking.load-balancer
+  report_section: "Load Balancer Specialist findings"
+  priority_default: medium

@@ -1,0 +1,22 @@
+agent_id: D-13
+name: Backup & Recovery Specialist
+category: data
+version: 0.1.0
+description: >
+  Evaluates backup strategy, replication, and disaster recovery readiness.
+
+scanner_signals:
+    - data.backup
+
+evaluation:
+  primary_file_patterns: []
+  secondary_file_patterns: []
+  confidence_floor: 0.3
+  presets:
+    - absence_when_no_signals
+    - misconfiguration_on_anti_pattern
+
+output:
+  concepts_owned: data.backup
+  report_section: "Backup & Recovery Specialist findings"
+  priority_default: medium
