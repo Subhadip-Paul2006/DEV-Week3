@@ -336,6 +336,4 @@ See `CONTRIBUTING.md`. We welcome:
 ---
 
 *Built by Subhadip Paul. Designed for the system-design community.*
-#   H a c k t o b e r f e s t - A E C  
- #   D E V - W e e k 3  
- 
+#
