@@ -51,6 +51,10 @@ graphify-out/
 secrets.yaml
 secrets.yml
 
+# AI Instructions and Agent contracts
+AI_INSTRUCTIONS.md
+AGENTS.md
+
 # Editor / IDE
 .vscode/
 .idea/
