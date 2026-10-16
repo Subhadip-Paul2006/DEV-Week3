@@ -1,0 +1,116 @@
+flowchart TD
+    subgraph CLI["CLI Entrypoint"]
+        CLI_MAIN["sdat audit [target] (sdat/cli.py)"]
+        CONF["Config Loader (config/sdat.config.yaml)"]
+    end
+
+    subgraph DISCOVERY["1. Discovery & Sanitization"]
+        RESOLVE["Path Resolution & Boundary Check"]
+        SECRET_CHECK["Secret Exclusion (is_secret_file)"]
+        EXCLUDE["Build Excludes (venv, node_modules)"]
+    end
+
+    subgraph SCANNERS["2. Multi-Language AST Scanners"]
+        REGISTRY["Scanner Registry (sdat/scanners/registry.py)"]
+        PY_SCAN["PythonScanner (.py)"]
+        TS_SCAN["TypeScriptScanner (.ts, .js)"]
+        GO_SCAN["GoScanner (.go)"]
+        RS_SCAN["RustScanner (.rs)"]
+        CC_SCAN["CCppScanner (.c, .cpp)"]
+        PHP_SCAN["PhpScanner (.php)"]
+        JAVA_SCAN["JavaScanner (.java)"]
+        CACHE["Content-Hashed Cache (.sdat_cache/)"]
+    end
+
+    subgraph CEM["3. Common Evidence Subsystem"]
+        FACTS["Typed Structural Facts (list[EvidenceFact])"]
+        AGGREGATOR["Evidence Aggregator & Correlator"]
+        BUNDLES["Correlated Evidence Bundles"]
+        BRIDGE["SignalBridge (Legacy Interop)"]
+    end
+
+    subgraph SWARM["4. Resilient Two-Tier Swarm"]
+        SWARM_ORCH["Swarm Orchestrator (ThreadPoolExecutor)"]
+        F_AGENTS["Foundation Agents (F-01..F-20)"]
+        D_AGENTS["Domain Specialists (Backend, Frontend)"]
+        KP_AGENTS["KnowledgePack Agents (ML, NLP)"]
+        MERGER["Deterministic Result Merger (merger.py)"]
+    end
+
+    subgraph AI_GATEWAY["5. AI Enhancement Gateway (Optional)"]
+        GATEWAY["AI Gateway (sdat/ai/gateway.py)"]
+        OPENROUTER["OpenRouter Adapter (Qwen/DeepSeek)"]
+        GEMMA["Gemma / Gemini Adapter"]
+        OFFLINE["Offline Cache Matcher"]
+        FALLBACK["Fail-Open Deterministic Fallback"]
+    end
+
+    subgraph REPORTING["6. Report & Telemetry Generation"]
+        RENDERER["Jinja2 Report Engine"]
+        R_INV["01-inventory.md"]
+        R_GAPS["02-gaps.md"]
+        R_MISCONF["03-misconfigurations.md"]
+        R_REMED["04-remediation.md"]
+        TELEMETRY["telemetry.json (AuditTelemetry)"]
+    end
+
+    CLI_MAIN --> CONF
+    CLI_MAIN --> RESOLVE
+    RESOLVE --> SECRET_CHECK
+    SECRET_CHECK --> EXCLUDE
+    EXCLUDE --> REGISTRY
+
+    REGISTRY --> PY_SCAN
+    REGISTRY --> TS_SCAN
+    REGISTRY --> GO_SCAN
+    REGISTRY --> RS_SCAN
+    REGISTRY --> CC_SCAN
+    REGISTRY --> PHP_SCAN
+    REGISTRY --> JAVA_SCAN
+
+    PY_SCAN <--> CACHE
+    TS_SCAN <--> CACHE
+    GO_SCAN <--> CACHE
+    RS_SCAN <--> CACHE
+    CC_SCAN <--> CACHE
+    PHP_SCAN <--> CACHE
+    JAVA_SCAN <--> CACHE
+
+    PY_SCAN --> FACTS
+    TS_SCAN --> FACTS
+    GO_SCAN --> FACTS
+    RS_SCAN --> FACTS
+    CC_SCAN --> FACTS
+    PHP_SCAN --> FACTS
+    JAVA_SCAN --> FACTS
+
+    FACTS --> AGGREGATOR
+    AGGREGATOR --> BUNDLES
+    AGGREGATOR --> BRIDGE
+
+    BUNDLES --> SWARM_ORCH
+    SWARM_ORCH --> F_AGENTS
+    SWARM_ORCH --> D_AGENTS
+    SWARM_ORCH --> KP_AGENTS
+
+    F_AGENTS --> MERGER
+    D_AGENTS --> MERGER
+    KP_AGENTS --> MERGER
+
+    MERGER -->|"list[Decision]"| GATEWAY
+    GATEWAY --> OPENROUTER
+    GATEWAY --> GEMMA
+    GATEWAY --> OFFLINE
+    GATEWAY -->|"Error or --no-ai"| FALLBACK
+
+    MERGER --> RENDERER
+    FALLBACK --> RENDERER
+    OPENROUTER --> RENDERER
+    GEMMA --> RENDERER
+    OFFLINE --> RENDERER
+
+    RENDERER --> R_INV
+    RENDERER --> R_GAPS
+    RENDERER --> R_MISCONF
+    RENDERER --> R_REMED
+    RENDERER --> TELEMETRY

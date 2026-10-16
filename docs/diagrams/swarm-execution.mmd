@@ -1,0 +1,55 @@
+flowchart TD
+    subgraph INPUT["Swarm Input"]
+        CTX["Project Context\n(target_root, evidence_facts, bundles)"]
+    end
+
+    subgraph ORCH["Swarm Orchestrator (sdat/swarm/orchestrator.py)"]
+        WORKER_POOL["Bounded ThreadPoolExecutor\n(max_workers: 4)"]
+        TASK_CACHE["Task Cache Check\n(_compute_task_cache_key)"]
+        TIMEOUT_MGR["Per-Agent Timeout Guard\n(default: 30.0s)"]
+        RETRY_MGR["Transient Error Retry\n(Backoff + Random Jitter)"]
+    end
+
+    subgraph AGENTS["Swarm Agents (Protocol: SwarmAgent)"]
+        direction TB
+        F_AGENT["FoundationAgent\n(Evaluates F-01..F-20 Core Rules)"]
+        BE_AGENT["BackendAgent\n(APIs, Auth, DB, Transactions)"]
+        FE_AGENT["FrontendAgent\n(Client Caching, State, DOM)"]
+        ML_AGENT["KnowledgePackAgent [ML]\n(Tensors, Optimization Hygiene)"]
+        NLP_AGENT["KnowledgePackAgent [NLP]\n(Attention Masking, Sequences)"]
+    end
+
+    subgraph MERGING["Decision Merger (sdat/swarm/merger.py)"]
+        DEDUP["Deduplicate Decisions by Concept ID"]
+        OWNER_CHECK{"Is Concept Owner\nDeclared?"}
+        PREFER_OWNER["Select Owning Agent's Verdict"]
+        CONF_CHECK["Tie-Break by Higher Confidence"]
+        FINAL_DECISIONS["Authoritative list[Decision]"]
+    end
+
+    CTX --> TASK_CACHE
+    TASK_CACHE -->|"Cache Hit"| MERGING
+    TASK_CACHE -->|"Cache Miss"| WORKER_POOL
+
+    WORKER_POOL --> TIMEOUT_MGR
+    TIMEOUT_MGR --> F_AGENT
+    TIMEOUT_MGR --> BE_AGENT
+    TIMEOUT_MGR --> FE_AGENT
+    TIMEOUT_MGR --> ML_AGENT
+    TIMEOUT_MGR --> NLP_AGENT
+
+    F_AGENT -.->|"Transient Failure"| RETRY_MGR
+    BE_AGENT -.->|"Transient Failure"| RETRY_MGR
+    RETRY_MGR -.->|"Retry Task"| WORKER_POOL
+
+    F_AGENT --> DEDUP
+    BE_AGENT --> DEDUP
+    FE_AGENT --> DEDUP
+    ML_AGENT --> DEDUP
+    NLP_AGENT --> DEDUP
+
+    DEDUP --> OWNER_CHECK
+    OWNER_CHECK -->|"Yes"| PREFER_OWNER
+    OWNER_CHECK -->|"No / Tie"| CONF_CHECK
+    PREFER_OWNER --> FINAL_DECISIONS
+    CONF_CHECK --> FINAL_DECISIONS

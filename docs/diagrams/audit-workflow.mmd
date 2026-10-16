@@ -1,0 +1,65 @@
+sequenceDiagram
+    autonumber
+    actor Dev as Developer / CI
+    participant CLI as sdat CLI (sdat/cli.py)
+    participant Orch as Audit Pipeline (sdat/orchestrator.py)
+    participant Scanners as Scanner Registry (sdat/scanners/)
+    participant Cache as ContentCache (.sdat_cache/)
+    participant Agg as EvidenceAggregator (sdat/evidence/)
+    participant Swarm as Swarm Orchestrator (sdat/swarm/)
+    participant Merger as Decision Merger (merger.py)
+    participant AI as AI Gateway (sdat/ai/)
+    participant Render as Jinja2 Renderer (sdat/renderer/)
+    participant FS as File System (docs/audit/)
+
+    Dev->>CLI: sdat audit [target]
+    CLI->>Orch: run_audit_pipeline(target_root, output_dir)
+    Note over Orch: Stage 1: Path Resolution & Secret Exclusion
+
+    Orch->>Scanners: Discover & scan files for registered languages
+    loop For each candidate source file
+        Scanners->>Cache: Check content hash (SHA-256)
+        alt Cache Hit
+            Cache-->>Scanners: Reconstitute cached EvidenceFacts
+        else Cache Miss
+            Scanners->>Scanners: Parse AST & extract structural facts
+            Scanners->>Cache: Store facts by content hash
+        end
+    end
+    Scanners-->>Orch: list[EvidenceFact]
+
+    Note over Orch: Stage 3: Evidence Aggregation
+    Orch->>Agg: correlate(all_facts)
+    Agg-->>Orch: Correlated EvidenceBundles & facts
+
+    Note over Orch: Stage 4: Resilient Swarm Evaluation
+    Orch->>Swarm: execute(project_context)
+    par Concurrent Agent Execution
+        Swarm->>Swarm: Run Foundation Agents (F-01..F-20)
+    and
+        Swarm->>Swarm: Run Domain & KnowledgePack Agents
+    end
+    Swarm->>Merger: merge_decisions(raw_agent_outputs)
+    Merger-->>Orch: Deduplicated list[Decision]
+
+    Note over Orch: Stage 5: Optional AI Reasoning Pass
+    alt --no-ai is NOT set and credentials present
+        Orch->>AI: enrich_findings(decisions, facts)
+        alt API Success
+            AI-->>Orch: AIEnrichmentResult (Executive Summary + Fix Cards)
+        else API Failure or Timeout
+            AI-->>Orch: Fail-Open to Deterministic Remediation
+        end
+    else --no-ai active
+        Orch->>Orch: Generate deterministic remediation cards
+    end
+
+    Note over Orch: Stage 6: Report & Telemetry Generation
+    Orch->>Render: render_reports(decisions, enrichment)
+    Render->>FS: Write 01-inventory.md
+    Render->>FS: Write 02-gaps.md
+    Render->>FS: Write 03-misconfigurations.md
+    Render->>FS: Write 04-remediation.md
+    Orch->>FS: Write telemetry.json
+    Orch-->>CLI: AuditResult (counts, paths, metrics)
+    CLI-->>Dev: Rich console summary cards (Exit code 0)

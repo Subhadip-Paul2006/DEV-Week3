@@ -1,0 +1,50 @@
+flowchart LR
+    subgraph INGRESS["Findings & Evidence Ingress"]
+        DECISIONS["Merged Decisions\n(list[Decision])"]
+        FACTS["Evidence Facts\n(list[EvidenceFact])"]
+    end
+
+    subgraph CONFIG["Provider Resolution (sdat/ai/config.py)"]
+        CHECK_CLI{"--no-ai Flag Active?"}
+        CHECK_KEYS{"Detect Provider Keys\n(OpenRouter, Gemini, etc.)"}
+        CFG_RESOLVED["Resolved AIConfig\n(Timeout, Tokens, Budget)"]
+    end
+
+    subgraph GATEWAY["AI Gateway (sdat/ai/gateway.py)"]
+        BUDGET_GUARD["Context Budget Guard\n(Cap: 4000 tokens)"]
+        GROUNDING_FILTER["Grounding Engine\n(Cross-check AST Citations)"]
+        ADAPTER_CALL["Invoke Provider Adapter\n(OpenRouter / Gemma / Local)"]
+    end
+
+    subgraph OUTCOMES["Outcome Resolution"]
+        SUCCESS{"Valid JSON Response?"}
+        ENRICHED["AIEnrichmentResult\n(Executive Summary + Cards)"]
+        FAIL_OPEN["Fail-Open Fallback\n(Static KB Markdown Cards)"]
+    end
+
+    subgraph EGRESS["Report Output"]
+        DOC["04-remediation.md"]
+        TELEMETRY["telemetry.json\n(AI Duration & Status)"]
+    end
+
+    DECISIONS --> CHECK_CLI
+    FACTS --> CHECK_CLI
+
+    CHECK_CLI -->|"Yes"| FAIL_OPEN
+    CHECK_CLI -->|"No"| CHECK_KEYS
+
+    CHECK_KEYS -->|"No keys found"| FAIL_OPEN
+    CHECK_KEYS -->|"Provider key present"| CFG_RESOLVED
+
+    CFG_RESOLVED --> BUDGET_GUARD
+    BUDGET_GUARD --> GROUNDING_FILTER
+    GROUNDING_FILTER --> ADAPTER_CALL
+
+    ADAPTER_CALL --> SUCCESS
+    SUCCESS -->|"Success"| ENRICHED
+    SUCCESS -->|"Error / Timeout / Malformed"| FAIL_OPEN
+
+    ENRICHED --> DOC
+    ENRICHED --> TELEMETRY
+    FAIL_OPEN --> DOC
+    FAIL_OPEN --> TELEMETRY
